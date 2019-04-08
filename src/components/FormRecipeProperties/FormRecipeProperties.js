@@ -8,28 +8,32 @@ const FormRecipeProperties = () => {
          <AddRecipeFormInput
             nameOfClass='recipeProperties__preparationTime'
             inputClass='preparationTime__input recipeProperties__input'
-            name='Preparation Time'
+            title='Preparation Time'
+            name='preparationTime'
             type='text'
             placeholder=''
          /> 
          <AddRecipeFormInput
             nameOfClass='recipeProperties__cookTime'
             inputClass='cookTime__input recipeProperties__input'
-            name='Cook Time'
+            title='Cook Time'
+            name='cookTime'
             type='text'
             placeholder=''
          />
          <AddRecipeFormInput
             nameOfClass='recipeProperties__totalTime'
             inputClass='totalTime__input recipeProperties__input'
-            name='Total Time'
+            title='Total Time'
+            name='totalTime'
             type='text'
             placeholder=''
          /> 
          <AddRecipeFormInput
             nameOfClass='recipeProperties__serves'
             inputClass='serves__input recipeProperties__input'
-            name='Serves'
+            title='Serves'
+            name='serves'
             type='text'
             placeholder=''
          />

@@ -6,7 +6,7 @@ import './RecipeBookRecipes.scss';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import SearchRecipe from '../SearchRecipe/SearchRecipe';
 import FormButton from '../FormButton/FormButton';
-//import RecipesWrapper from './RecipesWrapper/RecipesWrapper';
+import MyRecipes from '../../containers/MyRecipes/MyRecipes';
 
 const RecipeBookRecipes = () => {
    return (  
@@ -22,7 +22,7 @@ const RecipeBookRecipes = () => {
                text='Add New Recipe'
             />
          </Link>
-         {/* <RecipesWrapper /> */}
+         <MyRecipes />
       </>
    )
 }

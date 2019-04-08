@@ -1,10 +1,10 @@
 import React from 'react';
 import {Field} from 'redux-form';
 
-const AddRecipeFormInput = ({nameOfClass, inputClass, name, type, placeholder}) => {
+const AddRecipeFormInput = ({nameOfClass, inputClass, title, name, type, placeholder}) => {
    return (  
       <label className={nameOfClass}>
-         {name}:
+         {title}:
             <Field 
                className={inputClass}
                name={name}
