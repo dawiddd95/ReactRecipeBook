@@ -1,10 +1,16 @@
 import React from 'react'
 
+import './SearchRecipe.scss';
+
 const SearchRecipe = () => {
    return (  
-      <div>
-         <input type="text"/>
-         <button>Search</button>
+      <div className='searchWrapper'>
+         <input 
+            className='searchWrapper__input' 
+            type="text"
+            placeholder='Search Recipe'   
+         />
+         <button className='searchWrapper__button'>Search</button>
       </div>
    );
 }

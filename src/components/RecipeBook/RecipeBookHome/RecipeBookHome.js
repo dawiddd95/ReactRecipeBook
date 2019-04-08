@@ -1,14 +1,14 @@
-// Odkomentować całe api
-
 import React, {Component} from 'react'
 
 import './RecipeBookHome.scss';
 
 import SectionTitle from '../SectionTitle/SectionTitle';
 import Recipes from './Recipes/Recipes';
+import LoadingFetchData from './LoadingFetchData/LoadingFetchData';
 
-const keyAPI = 'a7b83ca1fbaa55083cad4707834d4785' 
-//const keyAPI = '1ef68b71c2c80cd188b64df3f012b08e'; //another key if previous have limit
+//const keyAPI = 'a7b83ca1fbaa55083cad4707834d4785' 
+//another key if previous have limit
+const keyAPI = '1ef68b71c2c80cd188b64df3f012b08e'; 
 const requestAPI = `https://cors-anywhere.herokuapp.com/https://www.food2fork.com/api/search?key=${keyAPI}&count=50`;
 
 
@@ -20,7 +20,8 @@ class RecipeBookHome extends Component {
    // 5. recipes musi byc w storze
    // 6. Ze style w jsx piszemy w camelCase
    state = {
-      recipes: []
+      recipes: [],
+      isFetching: true
    }
 
    componentDidMount() {
@@ -28,7 +29,7 @@ class RecipeBookHome extends Component {
       .then(response => {
          if(response.ok) {
             return response;
-         }
+         } 
          throw Error("not connected with api");
       })
       .then(response => response.json())
@@ -36,7 +37,8 @@ class RecipeBookHome extends Component {
       .then(data => {
          console.log(data)
          this.setState({
-            recipes: data.recipes // Poniewaz idziemy w obiekt.poleRecipes inaczej wywali blad w .map()
+            recipes: data.recipes, // Poniewaz idziemy w obiekt.poleRecipes inaczej wywali blad w .map()
+            isFetching: false
          })
       })
       .catch(err => console.log(err))
@@ -52,6 +54,7 @@ class RecipeBookHome extends Component {
             <Recipes 
                recipes={this.state.recipes}
             />
+            {this.state.isFetching && <LoadingFetchData />}
          </>
       ); 
    }

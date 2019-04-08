@@ -22,6 +22,7 @@ class NavbarLoginForm extends Component {
          if(currentElement.email === values.email) {
             return index;
          }
+         return index;
       })
 
       userIndex = userIndex.filter(currentElement => currentElement !== undefined);
