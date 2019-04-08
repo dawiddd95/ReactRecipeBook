@@ -3,6 +3,7 @@ import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import { reduxForm } from 'redux-form';
 import StarRatingComponent from 'react-star-rating-component';
+import uuid from 'uuid';
 
 import {addRecipeAction} from '../../actions/actions';
 
@@ -16,7 +17,6 @@ import FormRecipeProperties from '../../components/FormRecipeProperties/FormReci
 class CreateRecipeForm extends Component {
    state = {  
       starRating: 0,
-      recipeLp: 0,
       ingredientInputs: [{
          ingredientLp: 0, 
          ingredientValue: "",
@@ -33,7 +33,12 @@ class CreateRecipeForm extends Component {
          methodLp: 1,
          methodValue: "",
       },
+      errorMessage: false,
       redirectToNewPage: false
+   }
+
+   componentDidMount() {
+      this.scrollToTop();
    }
 
    scrollToTop = () => {
@@ -87,27 +92,34 @@ class CreateRecipeForm extends Component {
       })
    };
    submit = values => {
-      values.ingredients = this.state.ingredientInputs;
-      values.method = this.state.methodInputs;
-      values.starRating = this.state.starRating;
-      values.favorite = false;
-      values.lp = this.state.recipeLp;
-      this.props.newRecipe(values);
-      
-      this.setState(prevState => ({
-         recipeLp: prevState.recipeLp+1,
-         redirectToNewPage: true
-      }))
+      const validateRecipeTitle = this.props.recipes.findIndex(currentElement => {
+         return currentElement.recipeTitle === values.recipeTitle
+      })
 
-      console.log(values)
-   }
+      if(validateRecipeTitle === -1) {
+         values.ingredients = this.state.ingredientInputs;
+         values.method = this.state.methodInputs;
+         values.starRating = this.state.starRating;
+         values.favorite = false;
+         values.lp = uuid.v4();
 
-   componentDidMount() {
-      this.scrollToTop();
-   }
+         this.props.newRecipe(values);
+
+         this.setState({
+            errorMessage: false,
+            redirectToNewPage: true
+         })
+      } else {
+         this.setState({
+            errorMessage: true
+         })
+      }
+   };
+
+
 
    render() { 
-      const { starRating, ingredientInputs, methodInputs, redirectToNewPage } = this.state;
+      const { starRating, ingredientInputs, methodInputs, redirectToNewPage, errorMessage } = this.state;
       const styleRatingStars = {
          'marginBottom': '0',
          'paddingLeft': '10px',
@@ -249,8 +261,17 @@ class CreateRecipeForm extends Component {
                   Cancel
                </Link>
             </div>
+            {errorMessage ? <p className='errorMessage'>
+               Recipe with this name already exists
+            </p> : undefined}
          </form>
       );
+   }
+}
+
+const mapStateToProps = state => {
+   return {
+      recipes: state.recipeReducer
    }
 }
 
@@ -260,7 +281,7 @@ const mapDispatchToProps = dispatch => {
    }
 }
  
-CreateRecipeForm = connect(undefined, mapDispatchToProps)(CreateRecipeForm)
+CreateRecipeForm = connect(mapStateToProps, mapDispatchToProps)(CreateRecipeForm)
 
 export default reduxForm({
    form: 'loginForm'

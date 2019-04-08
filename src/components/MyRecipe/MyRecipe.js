@@ -9,11 +9,10 @@ import recipeImage from '../../images/recipe.jpg';
 
 const MyRecipe = (props) => {
    const marginLeft = props.recipesAmount < 3 ? {'marginLeft': '40px'} : {'marginLeft': '0px'};
-   const favoriteIcon = props.favorite ? addToFavorite : likeRecipe;
-   const backgroundImage = !props.recipeImage ? 
-      {'backgroundImage': `url(${recipeImage})`} : 
+   const favoriteIcon = props.favorite ? likeRecipe : addToFavorite;
+   const backgroundImage = !props.recipeImage ? {'backgroundImage': `url(${recipeImage})`} : 
       {'backgroundImage': `url(${props.recipeImage})`}
-
+   
    return (  
       <div className='wrapper__recipe' style={marginLeft}>
          <div className='recipe__img' style={backgroundImage}></div>
@@ -21,7 +20,8 @@ const MyRecipe = (props) => {
             {props.recipeTitle}
          </p>
          <div style={{'marginLeft': '20px','fontSize': '24px'}}>
-            <StarRatingComponent 
+            <StarRatingComponent
+               name='' 
                value={props.starRating} 
                starCount={5} 
                emptyStarColor="#f3f3f3"
@@ -32,8 +32,16 @@ const MyRecipe = (props) => {
                VIEW RECIPE
             </button>
             <div className="buttons__icons">
-               <img src={favoriteIcon} alt="like"/>
-               <img src={deleteRecipe} alt="delete"/>
+               <img 
+                  onClick={() => props.handleToggleFavoriteClick(props.lp)} 
+                  src={favoriteIcon} 
+                  alt="like"
+               />
+               <img 
+                  onClick={() => props.handleShowDeleteModalClick(props.lp)} 
+                  src={deleteRecipe} 
+                  alt="delete"
+               />
             </div>
          </div>   
       </div>

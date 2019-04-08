@@ -172,7 +172,7 @@
    width: 100%;
    height: 50px;
    margin-top: 40px;
-   margin-bottom: 60px;
+   margin-bottom: 20px;
    
    display: flex;
    align-items: center;
@@ -208,6 +208,7 @@
 }
 
 .form__buttons a {
+   width: 140px;
    border: 2px solid #E74C3C;
    color: #E74C3C;
 
@@ -221,3 +222,9 @@
    }
 }
 
+.errorMessage {
+   margin-top: -60px;
+   margin-left: 300px;
+   color: #E74C3C;
+   position: absolute;
+}

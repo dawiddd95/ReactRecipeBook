@@ -27,3 +27,32 @@ export const addRecipeAction = (recipe) => {
         recipe
     }
 }
+
+export const deleteRecipeAction = (recipe) => {
+    return {
+        type: actionType.DELETE_RECIPE,
+        recipe
+    }
+} 
+
+export const favoriteRecipeAction = (recipe) => {
+    return {
+        type: actionType.FAVORITE_RECIPE,
+        recipe
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

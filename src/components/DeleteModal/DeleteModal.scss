@@ -1,0 +1,66 @@
+.modal {
+   width: 100%;
+   height: 100%; 
+   top: 0;
+   left: 0;
+   background-color: rgb(0,0,0); 
+   background-color: rgba(0,0,0,0.4);
+   position: fixed;
+   z-index: 1;  
+   overflow: auto;
+}
+ 
+.modal__content {
+   width: 50%; 
+   margin: 15% auto;
+   padding: 20px;
+   background-color: #fefefe;
+   border: 1px solid #888;
+
+   p {
+      font-size: 18px;
+   }
+}
+
+.span__recipeName {
+   margin: 0 5px;
+   color: #68CECE; 
+}
+ 
+.modalContent__buttons {
+   width: 100%;
+   height: 40px;
+   margin-top: 30px;
+}
+
+.cancel, .delete {
+   width: 100px;
+   height: 30px;
+   background-color: white;
+   border: none;
+   border-radius: 10px;
+   outline: none;
+   transition: .3s;
+   cursor: pointer;
+}
+
+.cancel {
+   margin-right: 20px;
+   border: 2px solid #FFA300;
+
+   &:hover {
+      background-color: #FFA300;
+      color: white;
+      transition: .3s;
+   }
+}
+
+.delete {
+   border: 2px solid #E74C3C;
+
+   &:hover {
+      background-color: #E74C3C;
+      color: white;
+      transition: .3s;
+   }
+}
