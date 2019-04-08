@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/ReactRecipeBook/static/js/runtime~main.b22db41e.js"
   },
   {
-    "revision": "fbdb0b6221e7471bba5a",
-    "url": "/ReactRecipeBook/static/js/main.2cfec6cb.chunk.js"
+    "revision": "3a8d6926218689e9e4e1",
+    "url": "/ReactRecipeBook/static/js/main.a91876a3.chunk.js"
   },
   {
     "revision": "45124f853ba07aa965c0",
     "url": "/ReactRecipeBook/static/js/2.6efc73d3.chunk.js"
   },
   {
-    "revision": "fbdb0b6221e7471bba5a",
-    "url": "/ReactRecipeBook/static/css/main.4fecb1c2.chunk.css"
+    "revision": "3a8d6926218689e9e4e1",
+    "url": "/ReactRecipeBook/static/css/main.c224b7db.chunk.css"
   },
   {
-    "revision": "1b18b6fa1d301f87de70c4d79f9636cd",
+    "revision": "f22f87b8d9938f4cce71be53b6345590",
     "url": "/ReactRecipeBook/index.html"
   }
 ];

@@ -1,14 +1,14 @@
 {
-  "main.css": "/ReactRecipeBook/static/css/main.4fecb1c2.chunk.css",
-  "main.js": "/ReactRecipeBook/static/js/main.2cfec6cb.chunk.js",
-  "main.js.map": "/ReactRecipeBook/static/js/main.2cfec6cb.chunk.js.map",
+  "main.css": "/ReactRecipeBook/static/css/main.c224b7db.chunk.css",
+  "main.js": "/ReactRecipeBook/static/js/main.a91876a3.chunk.js",
+  "main.js.map": "/ReactRecipeBook/static/js/main.a91876a3.chunk.js.map",
   "runtime~main.js": "/ReactRecipeBook/static/js/runtime~main.b22db41e.js",
   "runtime~main.js.map": "/ReactRecipeBook/static/js/runtime~main.b22db41e.js.map",
   "static/js/2.6efc73d3.chunk.js": "/ReactRecipeBook/static/js/2.6efc73d3.chunk.js",
   "static/js/2.6efc73d3.chunk.js.map": "/ReactRecipeBook/static/js/2.6efc73d3.chunk.js.map",
   "index.html": "/ReactRecipeBook/index.html",
-  "precache-manifest.ff718f0e41e651ce5e16eca01e414f35.js": "/ReactRecipeBook/precache-manifest.ff718f0e41e651ce5e16eca01e414f35.js",
+  "precache-manifest.15e6f2f849b338722d68855c8b1abcb6.js": "/ReactRecipeBook/precache-manifest.15e6f2f849b338722d68855c8b1abcb6.js",
   "service-worker.js": "/ReactRecipeBook/service-worker.js",
-  "static/css/main.4fecb1c2.chunk.css.map": "/ReactRecipeBook/static/css/main.4fecb1c2.chunk.css.map",
+  "static/css/main.c224b7db.chunk.css.map": "/ReactRecipeBook/static/css/main.c224b7db.chunk.css.map",
   "static/media/logo.svg": "/ReactRecipeBook/static/media/logo.5d5d9eef.svg"
 }
