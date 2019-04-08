@@ -1,27 +1,25 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import { reduxForm } from 'redux-form';
 import StarRatingComponent from 'react-star-rating-component';
 
-import './CreateRecipeForm.scss';
-import addIngredientInput from '../../images/addIngredient.svg';
-import addMethodInput from '../../images/addMethod.svg';
+import {addRecipeAction} from '../../actions/actions';
 
+import './CreateRecipeForm.scss';
+import AddRecipeFormInput from '../../components/AddRecipeFormInput/AddRecipeFormInput';
+import addIngredientInput from '../../images/addIngredient.svg';
+import deleteIngredientInput from '../../images/deleteIngredient.svg'
+import addMethodInput from '../../images/addMethod.svg';
+import deleteMethodInput from '../../images/deleteMethod.svg';
+
+import FormRecipeProperties from '../../components/FormRecipeProperties/FormRecipeProperties';
 
 // usprawnic wstawianie do tablicy
+// sprobowac i dynamiczne inputy zrobic w redux form
 class CreateRecipeForm extends Component {
    state = {  
-      back: false,
       starRating: 0,
-      recipeTitle: '',
-      recipeImage: '',
-      recipeDescription: '',
-      recipeNutrition: '',
-      recipePreparation: '',
-      recipeCook: '',
-      recipeTotal: '',
-      recipeServes: '',
-      recipeComment: '',
-      recipeArticle: '',
-      recipeVideo: '',
       ingredientInputs: [{
          ingredientLp: 0, 
          ingredientValue: "",
@@ -41,11 +39,7 @@ class CreateRecipeForm extends Component {
          methodLp: 1,
          methodValue: "",
          clicked: false
-      }, 
-
-      createRecipes: []
-
-      // moze zrobic obiekt recipeForm: {z tym wszystkim. } tylko jak zrobic wtedy [event.target.name]
+      }
    }
 
    onStarClick = (nextValue, prevValue, name) => {
@@ -54,7 +48,19 @@ class CreateRecipeForm extends Component {
       })
    }
 
-   addIngredientInput = () => {
+   addIngredientInput = (lp) => {
+      const ingredientInputs = this.state.ingredientInputs.map(currentElement => {
+         if(currentElement.ingredientLp === lp) {
+            currentElement.clicked = true;
+         }
+
+         this.setState({
+            ingredientInputs
+         })
+
+         return currentElement;
+      })
+
       this.setState(prevState => ({
          ingredient: {
             ingredientLp: prevState.ingredient.ingredientLp+1
@@ -67,7 +73,19 @@ class CreateRecipeForm extends Component {
       }))
    }
 
-   addMethodInput = () => {
+   addMethodInput = (lp) => {
+      const methodInputs = this.state.methodInputs.map(currentElement => {
+         if(currentElement.methodLp === lp) {
+            currentElement.clicked = true;
+         }
+
+         this.setState({
+            methodInputs
+         })
+
+         return currentElement;
+      })
+      
       this.setState(prevState => ({
          method: {
             methodLp: prevState.method.methodLp+1
@@ -78,6 +96,13 @@ class CreateRecipeForm extends Component {
             clicked: false
          }]) 
       }))
+   }
+
+   // tutaj 
+   deleteMethodInput = lp => () => {
+      this.setState({
+         shareholders: this.state.shareholders.filter((s, sidx) => idx !== sidx)
+       });
    }
    
    changeIngredientInputValue = lp => event => {
@@ -102,61 +127,17 @@ class CreateRecipeForm extends Component {
       })
    }
 
-   handleChangeCreateRecipeInput = (event) => {
-      this.setState({
-         [event.target.name]: event.target.value
-      })
-   }
-
-   handleClickAddRecipe = (event) => {
-      event.preventDefault();
-      let recipe = {};
-      recipe.push({
-         starRating: this.state.starRating,
-         recipeTitle: this.state.recipeTitle,
-         recipeImage: this.state.recipeImage,
-         recipeDescription: this.state.recipeDescription,
-         recipeNutrition: this.state.recipeNutrition,
-         recipePreparation: this.state.recipePreparation,
-         recipeCook: this.state.recipeCook,
-         recipeTotal: this.state.recipeTotal,
-         recipeServes: this.state.recipeServes,
-         recipeComment: this.state.recipeComment,
-         recipeArticle: this.state.recipeArticle,
-         recipeVideo: this.state.recipeVideo,
-         ingredientInputs: this.state.ingredientInputs,
-         methodInputs: this.state.methodInputs,
-      })
-
-      this.setState({
-         createRecipes: this.state.createRecipes.concat([recipe])
-      })
-      console.log(this.state.createRecipes)
-   }
-
-   handleClickCancelRecipe = (event) => {
-      event.preventDefault();
-
+   submit = values => {
+      values.ingredients = this.state.ingredientInputs;
+      values.method = this.state.methodInputs;
+      values.starRating = this.state.starRating;
+      
+      console.log(values);
    }
 
    render() { 
-      const {
-         starRating, 
-         recipeTitle,
-         recipeImage,
-         recipeDescription,
-         recipeNutrition,
-         recipePreparation,
-         recipeCook,
-         recipeTotal,
-         recipeServes,
-         recipeComment,
-         recipeArticle,
-         recipeVideo,
-         ingredientInputs, 
-         methodInputs
-      } = this.state;
-      
+      const { starRating, ingredientInputs, methodInputs } = this.state;
+
       const styleRatingStars = {
          'marginBottom': '0',
          'paddingLeft': '10px',
@@ -172,9 +153,10 @@ class CreateRecipeForm extends Component {
                onChange={this.changeIngredientInputValue(currentElement.ingredientLp)}
             />
             <img
-               onClick={this.addIngredientInput} 
-               src={addIngredientInput} 
-               alt="add"
+               key={currentElement.ingredientLp}
+               onClick={() => this.addIngredientInput(currentElement.ingredientLp)} 
+               src={!currentElement.clicked ? addIngredientInput : deleteIngredientInput} 
+               alt=""
             /> 
          </div>
       ))
@@ -191,37 +173,34 @@ class CreateRecipeForm extends Component {
                   onChange={this.changeMethodInputValue(currentElement.methodLp)}
                />
                <img
-                  onClick={this.addMethodInput} 
-                  src={addMethodInput} 
-                  alt="add"
+                  key={currentElement.methodLp}
+                  onClick={currentElement.clicked ?
+                     () => this.addMethodInput(currentElement.methodLp) :
+                     () => this.deleteMethodInput(currentElement.methodLp)
+                  } 
+                  src={!currentElement.clicked ? addMethodInput : deleteMethodInput} 
+                  alt=""
                /> 
             </div>
          </div>
       ))
 
       return (   
-            <form className='createRecipe__form' onSubmit={this.handleClickAddRecipe}>
-               <label className='form__recipeTitle'>
-                  Title: 
-                  <input 
-                     name='recipeTitle'
-                     value={recipeTitle}
-                     onChange={this.handleChangeCreateRecipeInput}
-                     className='recipeTitle__input form__input' 
-                     type="text"
-                  />
-               </label>
-               <label className='form__image'>
-                  Recipe Image Link: 
-                  <input 
-                     name='recipeImage'
-                     value={recipeImage}
-                     onChange={(event) => this.handleChangeCreateRecipeInput(event)}
-                     placeholder='E.g. https://www.thewholesomedish.com/wp-content/uploads/2018/07/Best-Lasagna-550.jpg' 
-                     className='image__input form__input' 
-                     type="text"
-                  />
-               </label>
+            <form className='createRecipe__form' onSubmit={this.props.handleSubmit(this.submit)}>
+               <AddRecipeFormInput
+                  nameOfClass='form__recipeTitle'
+                  inputClass='recipeTitle__input form__input'
+                  name='Title'
+                  type='text'
+                  placeholder=''
+               />
+               <AddRecipeFormInput
+                  nameOfClass='form__image'
+                  inputClass='image__input form__input'
+                  name='Recipe Image Link'
+                  type='text'
+                  placeholder='E.g. https://www.thewholesomedish.com/wp-content/uploads/2018/07/Best-Lasagna-550.jpg'
+               /> 
                <label className='form__starRating'>
                   Rating: 
                   <div className='starRating__stars' style={styleRatingStars}>
@@ -234,68 +213,21 @@ class CreateRecipeForm extends Component {
                      />
                   </div>
                </label>
-               <label className='form__description'>
-                  Description: 
-                  <input 
-                     name='recipeDescription'
-                     value={recipeDescription}
-                     onChange={(event) => this.handleChangeCreateRecipeInput(event)}
-                     className='description__input form__input' 
-                     type="text"
-                  />
-               </label>
-               <label className='form__nutrition'>
-                  Nutrition: 
-                  <input
-                     name='recipeNutrition' 
-                     value={recipeNutrition}
-                     onChange={(event) => this.handleChangeCreateRecipeInput(event)}
-                     className='nutrition__input form__input' 
-                     type="text"
-                  />
-               </label>
-               <div className='form__recipeProperties'>
-                  <label className='recipeProperties__preparationTime'>
-                     Preparation Time: 
-                     <input
-                        name='recipePreparation' 
-                        value={recipePreparation}
-                        onChange={(event) => this.handleChangeCreateRecipeInput(event)}
-                        className='preparationTime__input recipeProperties__input' 
-                        type="text"
-                     />
-                  </label>
-                  <label className='recipeProperties__cookTime'>
-                     Cook Time: 
-                     <input
-                        name='recipeCook' 
-                        value={recipeCook}
-                        onChange={(event) => this.handleChangeCreateRecipeInput(event)}
-                        className='cookTime__input recipeProperties__input' 
-                        type="text"
-                     />
-                  </label>
-                  <label className='recipeProperties__totalTime'>
-                     Total Time: 
-                     <input
-                        name='recipeTotal' 
-                        value={recipeTotal}
-                        onChange={(event) => this.handleChangeCreateRecipeInput(event)}
-                        className='totalTime__input recipeProperties__input' 
-                        type="text"
-                     />
-                  </label>
-                  <label className='recipeProperties__serves'>
-                     Serves: 
-                     <input
-                        name='recipeServes' 
-                        value={recipeServes}
-                        onChange={(event) => this.handleChangeCreateRecipeInput(event)}
-                        className='serves__input recipeProperties__input' 
-                        type="text"
-                     />
-                  </label>
-               </div>
+               <AddRecipeFormInput
+                  nameOfClass='form__description'
+                  inputClass='description__input form__input'
+                  name='Description'
+                  type='text'
+                  placeholder=''
+               />
+               <AddRecipeFormInput
+                  nameOfClass='form__nutrition'
+                  inputClass='nutrition__input form__input'
+                  name='Nutrition'
+                  type='text'
+                  placeholder=''
+               />
+               <FormRecipeProperties />
                <div className='form__ingredients'>
                   <div className='ingredients__title'>
                      <p>Ingredients</p>
@@ -312,49 +244,54 @@ class CreateRecipeForm extends Component {
                      {method}
                   </div>
                </div>
-               <label className='form__comment'>
-                  Comment To Recipe: 
-                  <input
-                     name='recipeComment' 
-                     value={recipeComment}
-                     onChange={(event) => this.handleChangeCreateRecipeInput(event)}
-                     className='comment__input form__input' 
-                     type="text"
-                  />
-               </label>
-               <label className='form__article'>
-                  Recipe Article Link: 
-                  <input 
-                     name='recipeArticle'
-                     value={recipeArticle}
-                     onChange={(event) => this.handleChangeCreateRecipeInput(event)}
-                     placeholder='E.g. https://www.delish.com/cooking/recipe-ideas/recipes/a51337/classic-lasagna-recipe/'   
-                     className='article__input form__input' 
-                     type="text"
-                  />
-               </label>
-               <label className='form__video'>
-                  Recipe Video Link: 
-                  <input 
-                     name='recipeVideo'
-                     value={recipeVideo}
-                     onChange={(event) => this.handleChangeCreateRecipeInput(event)}
-                     placeholder='E.g. https://www.youtube.com/watch?v=zVqunZUuwSs'
-                     className='video__input form__input' 
-                     type="text"
-                  />
-               </label>
+               <AddRecipeFormInput
+                  nameOfClass='form__comment'
+                  inputClass='comment__input form__input'
+                  name='Comment To Recipe'
+                  type='text'
+                  placeholder=''
+               />
+               <AddRecipeFormInput
+                  nameOfClass='form__article'
+                  inputClass='article__input form__input'
+                  name='Recipe Article Link'
+                  type='text'
+                  placeholder='E.g. https://www.delish.com/cooking/recipe-ideas/recipes/a51337/classic-lasagna-recipe/'
+               />
+               <AddRecipeFormInput
+                  nameOfClass='form__video'
+                  inputClass='video__input form__input'
+                  name='Recipe Video Link'
+                  type='text'
+                  placeholder='E.g. https://www.youtube.com/watch?v=zVqunZUuwSs'
+               />
                <div className='form__buttons'>
                   <button className='buttons__add'>
                      Add Recipe
                   </button>
-                  <button className='buttons__cancel' onClick={this.handleClickCancelRecipe}>
+                  <Link to='/app/recipes'>
                      Cancel
-                  </button>
+                  </Link>
                </div>
             </form>
       );
    }
 }
+
+const mapDispatchToProps = dispatch => {
+   return {
+      newRecipe: (values) => dispatch(addRecipeAction(values)),
+   }
+}
+
+const mapStateToProps = state => {
+   return {
+      recipe: state.addRecipeReducer,
+   }
+}
  
-export default CreateRecipeForm;
+CreateRecipeForm = connect(mapStateToProps, mapDispatchToProps)(CreateRecipeForm)
+
+export default reduxForm({
+   form: 'loginForm'
+})(CreateRecipeForm); 

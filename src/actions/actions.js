@@ -20,3 +20,10 @@ export const filterShowRecipes = (filter) => {
         filter
     }
 }
+
+export const addRecipeAction = (recipe) => {
+    return {
+        type: actionType.ADD_RECIPE,
+        recipe
+    }
+}
