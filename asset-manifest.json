@@ -1,14 +1,16 @@
 {
-  "main.css": "/ReactRecipeBook/static/css/main.c224b7db.chunk.css",
-  "main.js": "/ReactRecipeBook/static/js/main.a91876a3.chunk.js",
-  "main.js.map": "/ReactRecipeBook/static/js/main.a91876a3.chunk.js.map",
+  "main.css": "/ReactRecipeBook/static/css/main.9d52b5f4.chunk.css",
+  "main.js": "/ReactRecipeBook/static/js/main.026ecc1e.chunk.js",
+  "main.js.map": "/ReactRecipeBook/static/js/main.026ecc1e.chunk.js.map",
   "runtime~main.js": "/ReactRecipeBook/static/js/runtime~main.b22db41e.js",
   "runtime~main.js.map": "/ReactRecipeBook/static/js/runtime~main.b22db41e.js.map",
-  "static/js/2.6efc73d3.chunk.js": "/ReactRecipeBook/static/js/2.6efc73d3.chunk.js",
-  "static/js/2.6efc73d3.chunk.js.map": "/ReactRecipeBook/static/js/2.6efc73d3.chunk.js.map",
+  "static/js/2.d80141dd.chunk.js": "/ReactRecipeBook/static/js/2.d80141dd.chunk.js",
+  "static/js/2.d80141dd.chunk.js.map": "/ReactRecipeBook/static/js/2.d80141dd.chunk.js.map",
   "index.html": "/ReactRecipeBook/index.html",
-  "precache-manifest.15e6f2f849b338722d68855c8b1abcb6.js": "/ReactRecipeBook/precache-manifest.15e6f2f849b338722d68855c8b1abcb6.js",
+  "precache-manifest.11357972cec0329322b33efceba1c894.js": "/ReactRecipeBook/precache-manifest.11357972cec0329322b33efceba1c894.js",
   "service-worker.js": "/ReactRecipeBook/service-worker.js",
-  "static/css/main.c224b7db.chunk.css.map": "/ReactRecipeBook/static/css/main.c224b7db.chunk.css.map",
-  "static/media/logo.svg": "/ReactRecipeBook/static/media/logo.5d5d9eef.svg"
+  "static/css/main.9d52b5f4.chunk.css.map": "/ReactRecipeBook/static/css/main.9d52b5f4.chunk.css.map",
+  "static/media/index.css": "/ReactRecipeBook/static/media/DTLNobelT.9c27c923.otf",
+  "static/media/Main.scss": "/ReactRecipeBook/static/media/intro-img1.e67dc1fa.jpg",
+  "static/media/logo.svg": "/ReactRecipeBook/static/media/logo.a9217539.svg"
 }
