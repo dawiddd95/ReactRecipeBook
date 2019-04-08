@@ -1,0 +1,3 @@
+export const USER_LOGGED = 'USER_LOGGED';
+export const USER_REGISTER = 'USER_REGISTER';
+export const FILTER_SHOW_RECIPES = 'FILTER_SHOW_RECIPES';

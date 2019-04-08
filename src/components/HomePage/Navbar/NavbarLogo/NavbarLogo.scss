@@ -1,0 +1,16 @@
+.navbar__logo { 
+   width: 230px;
+   height: 100%;
+   margin-left: 170px;
+   color: white;
+   font-size: 18px;
+
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+
+   img {
+      width: 60px;
+      height: 60px;
+   }
+}
