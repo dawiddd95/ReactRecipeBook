@@ -1,7 +1,7 @@
 import React from 'react'
 
-import PageNav from './PageNav/PageNav';
-import ConnectedPageForm from './PageForm/PageForm';
+import PageNav from '../PageNav/PageNav';
+import ConnectedPageForm from '../../containers/ForgotPasswordPageForm/ForgotPasswordPageForm';
 
 const ForgotPasswordPage = () => {
    return (  
