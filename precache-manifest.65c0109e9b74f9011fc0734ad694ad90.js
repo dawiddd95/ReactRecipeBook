@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/ReactRecipeBook/static/media/heart.9d53d97b.svg"
   },
   {
-    "revision": "5786f448b9d0d2123dc0",
-    "url": "/ReactRecipeBook/static/css/main.9a36ce53.chunk.css"
+    "revision": "d80b13f3d5546ff6fc32",
+    "url": "/ReactRecipeBook/static/css/main.f35a5849.chunk.css"
   },
   {
     "revision": "7884afb693bc74ea12e4",
     "url": "/ReactRecipeBook/static/js/runtime~main.b22db41e.js"
   },
   {
-    "revision": "5f92295db7259d92917a",
-    "url": "/ReactRecipeBook/static/js/2.69886de9.chunk.js"
+    "revision": "01eaf1f1fb6aa90d6984",
+    "url": "/ReactRecipeBook/static/js/2.57680bf5.chunk.js"
   },
   {
     "revision": "a9217539a623c3f3607f5145239c38cd",
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/ReactRecipeBook/static/media/like.d654ce19.svg"
   },
   {
-    "revision": "5786f448b9d0d2123dc0",
-    "url": "/ReactRecipeBook/static/js/main.5e0d0388.chunk.js"
+    "revision": "d80b13f3d5546ff6fc32",
+    "url": "/ReactRecipeBook/static/js/main.d8bbe182.chunk.js"
   },
   {
     "revision": "ea3d28876add859e465fb077f876e658",
@@ -56,7 +56,7 @@ self.__precacheManifest = [
     "url": "/ReactRecipeBook/static/media/DTLNobelT.9c27c923.otf"
   },
   {
-    "revision": "3d23dcccde68dc9ae99e887aacc3030a",
+    "revision": "b8c0794e356bae30a75e1c61415a2131",
     "url": "/ReactRecipeBook/index.html"
   }
 ];
