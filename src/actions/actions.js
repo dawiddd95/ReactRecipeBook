@@ -42,14 +42,12 @@ export const favoriteRecipeAction = (recipe) => {
     }
 }
 
-export const recipeTypeAction = (recipeType) => {
+export const searchRecipeAction = (searchingRecipe) => {
     return {
-        type: actionType.RECIPES_TYPE,
-        recipeType
+        type: actionType.SEARCH_RECIPE,
+        searchingRecipe
     }
 }
-
-
 
 
 

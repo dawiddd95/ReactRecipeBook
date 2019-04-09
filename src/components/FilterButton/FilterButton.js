@@ -1,13 +1,10 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom';
 
-const FilterButton = ({text, link, handleChangeRecipesType}) => {
+const FilterButton = ({text, type, handleChangeRecipesType}) => {
    return (  
-      <NavLink exact to={link}>
-         <button onClick={() => handleChangeRecipesType(link)}>
-            {text}
-         </button>   
-      </NavLink>
+      <button onClick={() => handleChangeRecipesType(type)}>
+         {text}
+      </button>   
    );
 }
  

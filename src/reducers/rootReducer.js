@@ -5,7 +5,7 @@ import permissionReducer from './permissionReducer';
 import userRegisterReducer from './userRegisterReducer';
 import recipeReducer from './recipeReducer';
 import filterRecipesReducer from './filterRecipesReducer';
-import recipeTypeReducer from './recipeTypeReducer';
+import searchRecipeReducer from './searchRecipeReducer';
 
 const rootReducer = combineReducers({
    form: formReducer,
@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
    userRegisterReducer,
    recipeReducer,
    filterRecipesReducer,
-   recipeTypeReducer
+   searchRecipeReducer
 })
 
 export default rootReducer;

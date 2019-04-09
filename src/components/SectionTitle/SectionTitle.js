@@ -2,26 +2,26 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import './SectionTitle.scss';
-import {recipeTypeAction} from '../../actions/actions';
+import {filterShowRecipes, searchRecipeAction} from '../../actions/actions';
 
 import FilterButton from '../FilterButton/FilterButton';
 
 class SectionTitle extends Component {
-   handleChangeRecipesType = (type) => {
-      this.props.changeType(type);
-   }
-
    componentDidMount() {
-      this.props.changeType('all');
+      this.renderType();
    }
-
+   
+   handleChangeRecipesType = (type) => {
+      this.props.changeFilter(type);
+      this.props.searchingRecipe('')
+   };
    renderType = () => {
-      if(this.props.recipeType === 'all') {
+      if(this.props.filterRecipe === 'all') {
          return 'ALL';
-      } else if(this.props.recipeType === 'favorite') {
+      } else if(this.props.filterRecipe === 'favorite') {
          return 'FAVORITE';
       }
-   }
+   };
    
    render() {
       if(this.props.haveSelect) {
@@ -35,12 +35,12 @@ class SectionTitle extends Component {
                   FILTER BY: 
                   <FilterButton 
                      text='All'
-                     link='all' 
+                     type='all' 
                      handleChangeRecipesType={this.handleChangeRecipesType}
                   />
                   <FilterButton 
                      text='Favorite'
-                     link='favorite'
+                     type='favorite'
                      handleChangeRecipesType={this.handleChangeRecipesType}
                   />
                </div>
@@ -58,13 +58,14 @@ class SectionTitle extends Component {
 
 const mapStateToProps = state => {
    return {
-      recipeType: state.recipeTypeReducer
+      filterRecipe: state.filterRecipesReducer
    }
 }
 
 const mapDispatchToProps = dispatch => {
    return {
-      changeType: (type) => dispatch(recipeTypeAction(type)) 
+      changeFilter: (filter) => dispatch(filterShowRecipes(filter)),
+      searchingRecipe: (value) => dispatch(searchRecipeAction(value)) 
   }
 }
 

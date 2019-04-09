@@ -74,8 +74,6 @@ class RegisterForm extends Component {
             emailExist: emailExist
          }
       })
-
-      console.log(this.props.registerValues)
    }
 
    render() {

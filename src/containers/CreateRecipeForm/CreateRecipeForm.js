@@ -33,17 +33,17 @@ class CreateRecipeForm extends Component {
          methodLp: 1,
          methodValue: "",
       },
-      errorMessage: false,
+      errors: {
+         recipeExists: false,
+         isTitleEmpty: false
+      },
       redirectToNewPage: false
    }
 
    componentDidMount() {
-      this.scrollToTop();
-   }
-
-   scrollToTop = () => {
       window.scrollTo(0,0);
    };
+
    onStarClick = (nextValue, prevValue, name) => {
       this.setState({
          starRating: nextValue
@@ -96,31 +96,49 @@ class CreateRecipeForm extends Component {
          return currentElement.recipeTitle === values.recipeTitle
       })
 
-      if(validateRecipeTitle === -1) {
+      const recipeExists = this.validateRecipeExists(validateRecipeTitle);
+      const recipeTitleIsEmpty = this.validateRecipeTitleIsEmpty(values.recipeTitle);
+
+      if(!recipeExists && !recipeTitleIsEmpty) {
          values.ingredients = this.state.ingredientInputs;
          values.method = this.state.methodInputs;
          values.starRating = this.state.starRating;
          values.favorite = false;
          values.addFavoriteMessage = false;
          values.lp = uuid.v4();
-
+   
          this.props.newRecipe(values);
 
          this.setState({
-            errorMessage: false,
             redirectToNewPage: true
          })
+      }
+
+      this.setState({
+         errors: {
+            recipeExists,
+            isTitleEmpty: recipeTitleIsEmpty
+         },
+      })
+   };
+   validateRecipeExists = (validateRecipeTitle) => {
+      if(validateRecipeTitle === -1) {
+         return false;
       } else {
-         this.setState({
-            errorMessage: true
-         })
+         return true;
+      }
+   };
+   validateRecipeTitleIsEmpty = (validateRecipeTitle) => {
+      if(validateRecipeTitle !== undefined) {
+         return false;
+      } else {
+         return true;
       }
    };
 
 
-
    render() { 
-      const { starRating, ingredientInputs, methodInputs, redirectToNewPage, errorMessage } = this.state;
+      const { starRating, ingredientInputs, methodInputs, redirectToNewPage, errors } = this.state;
       const styleRatingStars = {
          'marginBottom': '0',
          'paddingLeft': '10px',
@@ -163,10 +181,13 @@ class CreateRecipeForm extends Component {
          </div>
       ));
 
+      
       if(redirectToNewPage) {
          return <Redirect to='/app/recipes' />
       }
 
+      
+      
       return (   
          <form className='createRecipe__form' onSubmit={this.props.handleSubmit(this.submit)}>
             <AddRecipeFormInput
@@ -262,8 +283,11 @@ class CreateRecipeForm extends Component {
                   Cancel
                </Link>
             </div>
-            {errorMessage ? <p className='errorMessage'>
-               Recipe with this name already exists
+            {errors.recipeExists ? <p className='errorMessage'>
+               Recipe with this title already exists
+            </p> : undefined}
+            {errors.isTitleEmpty ? <p className='errorMessage'>
+               You must provide recipe title 
             </p> : undefined}
          </form>
       );

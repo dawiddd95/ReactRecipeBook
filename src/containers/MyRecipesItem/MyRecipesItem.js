@@ -8,7 +8,7 @@ import addToFavorite from '../../images/heart.svg';
 import recipeImage from '../../images/recipe.jpg';
 
 
-class MyRecipe extends Component {
+class MyRecipesItem extends Component {
    showAddToFavoriteMessage = () => {
       const recipe = this.props.recipe.map(currentElement => {
          if(currentElement.addFavoriteMessage) {
@@ -21,15 +21,15 @@ class MyRecipe extends Component {
    }
 
    render() {
-      const marginLeft = this.props.recipesAmount < 3 ? {'marginLeft': '40px'} : {'marginLeft': '0px'};
       const favoriteIcon = this.props.favorite ? likeRecipe : addToFavorite;
       const favoriteMessage = this.props.addFavoriteMessage ? <p>Favorite recipe</p> : undefined;
       const backgroundImage = !this.props.recipeImage ? {'backgroundImage': `url(${recipeImage})`} : 
          {'backgroundImage': `url(${this.props.recipeImage})`}
    
       return (  
-         <div className='wrapper__recipe' style={marginLeft}>
+         <div className='wrapper__recipe'>
             <div className='recipe__img' style={backgroundImage}></div>
+            {/* recipe name nie musi miec styli inline */}
             <p className='recipe__name' style={{'color': 'black'}}>                 
                {this.props.recipeTitle}
             </p>
@@ -42,6 +42,7 @@ class MyRecipe extends Component {
                />
             </div>
             <div className="footer"> 
+               {/* tutaj nie wiem czy musza byc style inline, ale prtzy styled components prwnie nie */}
                <button className='recipe__button' style={{'marginTop': '20px'}}>
                   VIEW RECIPE
                </button>
@@ -70,6 +71,6 @@ const mapStateToProps = state => {
    }
 }
 
-MyRecipe = connect(mapStateToProps)(MyRecipe);
+MyRecipesItem = connect(mapStateToProps)(MyRecipesItem);
  
-export default MyRecipe;
+export default MyRecipesItem;

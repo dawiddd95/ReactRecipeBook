@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom';
 import './RecipeBookRecipes.scss';
 
 import SectionTitle from '../SectionTitle/SectionTitle';
-import SearchRecipe from '../SearchRecipe/SearchRecipe';
+import SearchRecipe from '../../containers/SearchRecipe/SearchRecipe';
 import FormButton from '../FormButton/FormButton';
-import MyRecipesRouters from '../../Routers/MyRecipesRouters';
+import MyRecipes from '../../containers/MyRecipes/MyRecipes';
 
 const RecipeBookRecipes = () => {
    return (  
@@ -22,7 +22,7 @@ const RecipeBookRecipes = () => {
                text='Add New Recipe'
             />
          </Link>
-         <MyRecipesRouters />
+         <MyRecipes />
       </>
    )
 }
