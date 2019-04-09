@@ -42,7 +42,12 @@ export const favoriteRecipeAction = (recipe) => {
     }
 }
 
-
+export const recipeTypeAction = (recipeType) => {
+    return {
+        type: actionType.RECIPES_TYPE,
+        recipeType
+    }
+}
 
 
 

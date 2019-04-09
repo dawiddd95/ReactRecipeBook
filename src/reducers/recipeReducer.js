@@ -16,7 +16,6 @@ const recipeReducer = (state = [], action) => {
                   favorite: !currentElement.favorite
                }
             }
-
             return currentElement;
          });
       default:

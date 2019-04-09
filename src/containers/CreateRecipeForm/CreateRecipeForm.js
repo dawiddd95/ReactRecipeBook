@@ -101,6 +101,7 @@ class CreateRecipeForm extends Component {
          values.method = this.state.methodInputs;
          values.starRating = this.state.starRating;
          values.favorite = false;
+         values.addFavoriteMessage = false;
          values.lp = uuid.v4();
 
          this.props.newRecipe(values);

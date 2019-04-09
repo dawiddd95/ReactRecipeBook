@@ -1,9 +1,9 @@
-import {FILTER_SHOW_RECIPES} from '../actions/actionTypes';
+import {RECIPES_TYPE} from '../actions/actionTypes';
 
-const userRegisterReducer = (state = 'all', action) => {
+const userRegisterReducer = (state = '', action) => {
    switch(action.type) {
-      case FILTER_SHOW_RECIPES:
-         return action.data;
+      case RECIPES_TYPE:
+         return action.recipeType
       default:
          return state;
    }

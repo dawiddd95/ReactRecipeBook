@@ -3,15 +3,15 @@ import {connect} from 'react-redux';
 
 import {deleteRecipeAction, favoriteRecipeAction} from '../../actions/actions';
 import './MyRecipes.scss';
-import MyRecipe from '../../components/MyRecipe/MyRecipe';
+import MyRecipe from '../MyRecipe/MyRecipe';
 import EmptyList from '../../components/EmptyList/EmptyList';
 import DeleteModal from '../../components/DeleteModal/DeleteModal';
 
-class MyRecipes extends Component {
+class MyRecipesAll extends Component {
    state = {  
       deleteModalOpen: false,
       recipeLp: '',
-      recipeName: ''
+      recipeName: '',
    }
 
    handleShowDeleteModalClick = (lp) => {
@@ -37,16 +37,23 @@ class MyRecipes extends Component {
       })
    };
    handleToggleFavoriteClick = (lp) => {
-      console.log(lp)
+      this.showFavoriteAddMessage(lp);
       this.props.favoriteRecipe(lp);
    };
+   showFavoriteAddMessage = (lp) => {
+      this.props.recipes.map(currentElement => {
+         if(currentElement.lp === lp) {
+            currentElement.addFavoriteMessage = !currentElement.addFavoriteMessage
+         }
+      })
+   }
 
    render() { 
-      const justifyContent = this.props.recipes.length < 3 ? {'justifyContent': 'flex-start'} : {'justifyContent': 'space-around'}
-
-      // po dodaniu drugiego sie chrzani
-      const myRecipe = this.props.recipes.map(currentElement => <MyRecipe 
+      const justifyContent = this.props.recipes.length < 3 ? 
+         {'justifyContent': 'flex-start'} : {'justifyContent': 'space-around'}
+      const recipes = this.props.recipes.map(currentElement => <MyRecipe 
          key={currentElement.lp}
+         delete={true}
          recipesAmount={this.props.recipes.length}       
          handleShowDeleteModalClick={this.handleShowDeleteModalClick}
          handleToggleFavoriteClick={this.handleToggleFavoriteClick}
@@ -63,7 +70,7 @@ class MyRecipes extends Component {
             />}
             {this.props.recipes.length === 0 ? <EmptyList 
                text='Your recipes collection list is empty'
-            /> : myRecipe}
+            /> : recipes}
          </div>
       );
    }
@@ -71,7 +78,8 @@ class MyRecipes extends Component {
 
 const mapStateToProps = state => {
    return {
-      recipes: state.recipeReducer
+      recipes: state.recipeReducer,
+      show: state.filterRecipesReducer
    }
 }
 
@@ -82,6 +90,6 @@ const mapDispatchToProps = dispatch => {
    }
 }
 
-MyRecipes = connect(mapStateToProps, mapDispatchToProps)(MyRecipes);
+MyRecipesAll = connect(mapStateToProps, mapDispatchToProps)(MyRecipesAll);
 
-export default MyRecipes;
+export default MyRecipesAll;

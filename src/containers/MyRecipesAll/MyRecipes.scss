@@ -1,0 +1,54 @@
+.myRecipes__wrapper {
+   width: 100%;
+   height: 100%;
+   margin-top: 40px;
+
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.wrapper__recipe {
+   width: 420px;
+   height: 420px;
+   margin-bottom: 20px;
+   box-shadow: 7px 7px 7px 0 rgba(0,0,0,0.2);
+}
+
+.footer {
+   width: 100%;
+   height: 60px;
+
+   display: flex;
+
+   p {
+      font-size: 14px;
+      margin-top: 50px;
+      margin-left: 280px;
+      padding: 10px 20px;
+      color: #E74C3C;
+      position: absolute;
+   }
+}
+
+.buttons__icons {
+   width: 100px;
+   height: 100%;
+   margin-left: auto;
+   margin-right: 30px;
+
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+
+   img {
+      width: 23px;
+      height: 23px;
+      margin-top: 25px;
+      margin-left: 15px;
+      cursor: pointer;
+   }
+}
+
+.recipee__title {
+   margin-left: 10px;
+}
