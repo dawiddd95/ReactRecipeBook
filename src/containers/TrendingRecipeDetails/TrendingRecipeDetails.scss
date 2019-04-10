@@ -1,0 +1,31 @@
+.trendingRecipesWrapper {
+   width: 100%;
+   height: 100%;
+}
+
+.trendingRecipes__link {
+   width: 100%;
+   height: 40px;
+   margin: 30px 0 20px 0; 
+
+   display: flex;
+   align-items: center;
+
+   a {
+      margin-left: 60px;
+      font-size: 16px;
+      color: #333;
+
+      display: flex;
+      align-items: center;
+
+      span {
+         margin-top: 2px;
+         font-weight: 100;
+         font-family: 'Martel';
+         color: #333;
+         font-size: 35px;
+      }
+   }
+}
+

@@ -1,14 +1,14 @@
 import React from 'react'
 
-import './NavbarLogo.scss';
+import * as S from './StyledNavbarLogo';
 import logo from '../../images/logo.svg';
 
 const NavbarLogo = () => {
    return (  
-      <div className='navbar__logo'>
-         <img src={logo} alt="logo"/>
+      <S.Wrapper>
+         <S.Img src={logo} alt="logo"/>
          RecipeBook App
-      </div>
+      </S.Wrapper>
    );
 }
  

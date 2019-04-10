@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import StarRatingComponent from 'react-star-rating-component';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 import deleteRecipe from '../../images/deleteRecipe.svg';
 import likeRecipe from '../../images/like.svg';
@@ -43,9 +44,9 @@ class MyRecipesItem extends Component {
             </div>
             <div className="footer"> 
                {/* tutaj nie wiem czy musza byc style inline, ale prtzy styled components prwnie nie */}
-               <button className='recipe__button' style={{'marginTop': '20px'}}>
+               <Link to='ssss' style={{'marginTop': '20px'}}>
                   VIEW RECIPE
-               </button>
+               </Link>
                {favoriteMessage}
                <div className="buttons__icons">
                   <img 

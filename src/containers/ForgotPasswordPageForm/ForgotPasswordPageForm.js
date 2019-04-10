@@ -1,5 +1,3 @@
-// Komentarz w linii numer: 51
-
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
@@ -48,7 +46,6 @@ class PageForm extends Component {
    render() { 
       const {inputValue, submit, err, success} = this.state;
 
-      // Przy wpisaniu linku i wklejeniu normalnie pokaze strone przypominajaca bo po refresh ustawia isLoggedIn spowrotem na false => Musze zrobic zapis sesji w localStorage
       if(this.props.isLoggedIn) {
          return <Redirect to='/app/home' />
       }

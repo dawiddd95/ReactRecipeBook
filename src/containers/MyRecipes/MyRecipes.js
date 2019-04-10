@@ -20,18 +20,11 @@ class MyRecipes extends Component {
       recipeName: '',
    }
 
-   // Sroda
-   // ------------
-   // po kliknieciu nowy przepis ma zerowac searching Recipe V
-   // po kliknieciach filtrowania ma zerowac, ale zapisywac wartosc inputu V
-   // naprawic by mozna bylo pisc pusty przepis przy dodawaniu V
-   // Zrobic jeszcze wyszukiwanie w favorite V
-   // zamienic MyRecipesAll na MyRecipes V
-   // Zrobic monit że jeśli nic nie znalazlo i w favorite i w recipess all. jakas smutna buzka czy ta sama ikonka tylko ze inny tytul 'Not found recipe with this title in all recipes'
-
-   // 1. Zrobic podejrzenie przepisów z API
-   // 2. Zrobic wylogowanie
-   // 3. Zrobic podejrzenie przepisu z moich przepisow
+   // 2. Zrobic wylogowanie (dac avatara w kolko dane Imie i nazwisko ponizej email i ikonke logaut z drzwiami) (3) łatwe i szybkie ++
+   // 3. Zrobic podejrzenie przepisu z moich przepisow <MyRecipesItem /> to komponent przepisu
+   
+   
+   // 4. Zrobic edycje moich przepisow
 
    componentDidMount() {
       this.props.changeFilter('all');
@@ -89,32 +82,33 @@ class MyRecipes extends Component {
       searchRecipeFromAllRecipes,
       searchRecipeFromFavoriteRecipes
    ) => {
-      console.log(searchRecipeFromAllRecipes.length);
       if(this.props.recipes.length === 0 && this.props.filterRecipe === 'all') {        
          return <EmptyList text='Your recipes collection list is empty' />
       }
       else if(filterRecipes.length === 0 && this.props.filterRecipe === 'favorite') {
          return <EmptyList text='You have not favorite Recipes. Click on heart icon to add some' />
       } 
-      else if(this.props.recipes.length !== 0 && this.props.filterRecipe === 'all') {
+      else if(searchRecipeFromAllRecipes.length === 0 && this.props.filterRecipe === 'all') {
+         return <EmptyList text='Not found this recipe in all recipes' />
+      }
+      else if(searchRecipeFromFavoriteRecipes.length === 0 && this.props.filterRecipe === 'favorite') {
+         return <EmptyList text='Not found this recipe in favorite recipes' />
+      }
+      else if(this.props.recipes.length !== 0 && this.props.filterRecipe === 'all' &&  
+      searchRecipeFromAllRecipes.length !== 0) {
          if(this.props.searchRecipe === undefined) {
             return allRecipes;
          } else {
             return searchRecipeFromAllRecipes;
          }
       }
-      else if(filterRecipes.length !== 0 && this.props.filterRecipe === 'favorite') {
+      else if(filterRecipes.length !== 0 && this.props.filterRecipe === 'favorite' && searchRecipeFromFavoriteRecipes.length !== 0) {
          if(this.props.searchRecipe === '') {
             return favoriteRecipes;
          } else {
             return searchRecipeFromFavoriteRecipes;
          }
       }
-      // tutaj dzialamy
-      else if(searchRecipeFromAllRecipes.length === 0 && this.props.filterRecipe === 'all') {
-         console.log('dziala')
-         return <EmptyList text='Not found recipe with this title in all recipes' />
-      };
    };
 
    
@@ -123,7 +117,6 @@ class MyRecipes extends Component {
       const allRecipes = this.props.recipes.map(currentElement => <MyRecipesItem 
          key={currentElement.lp}
          delete={true}
-         recipesAmount={this.props.recipes.length}       
          handleShowDeleteModalClick={this.handleShowDeleteModalClick}
          handleToggleFavoriteClick={this.handleToggleFavoriteClick}
          {...currentElement}
@@ -131,8 +124,7 @@ class MyRecipes extends Component {
       const filterRecipes= this.props.recipes.filter(currentElement => currentElement.favorite === true);
       const favoriteRecipes = filterRecipes.map(currentElement => <MyRecipesItem 
          key={currentElement.lp}
-         delete={false}
-         recipesAmount={this.props.recipes.length}       
+         delete={false}   
          handleShowDeleteModalClick={this.handleShowDeleteModalClick}
          handleToggleFavoriteClick={this.handleToggleFavoriteClick}
          {...currentElement}
@@ -143,7 +135,6 @@ class MyRecipes extends Component {
       const searchRecipeFromAllRecipes = filterSearchingAll.map(currentElement => <MyRecipesItem 
          key={currentElement.lp}
          delete={true}
-         recipesAmount={this.props.recipes.length}       
          handleShowDeleteModalClick={this.handleShowDeleteModalClick}
          handleToggleFavoriteClick={this.handleToggleFavoriteClick}
          {...currentElement}
@@ -154,7 +145,6 @@ class MyRecipes extends Component {
       const searchRecipeFromFavoriteRecipes = filterSearchingFavorite.map(currentElement => <MyRecipesItem 
          key={currentElement.lp}
          delete={false}
-         recipesAmount={this.props.recipes.length}       
          handleShowDeleteModalClick={this.handleShowDeleteModalClick}
          handleToggleFavoriteClick={this.handleToggleFavoriteClick}
          {...currentElement}
@@ -176,7 +166,7 @@ class MyRecipes extends Component {
                filterRecipes, 
                favoriteRecipes, 
                searchRecipeFromAllRecipes,
-               searchRecipeFromFavoriteRecipes
+               searchRecipeFromFavoriteRecipes,
             )}
          </div>
       );

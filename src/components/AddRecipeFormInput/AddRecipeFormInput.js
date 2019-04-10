@@ -1,5 +1,6 @@
 import React from 'react';
 import {Field} from 'redux-form';
+import * as S from './StyledComponent';
 
 const AddRecipeFormInput = ({nameOfClass, inputClass, title, name, type, placeholder}) => {
    return (  

@@ -1,10 +1,11 @@
 import React from 'react'
+import * as S from './StyledFormButton'
 
-const FormButton = (props) => {
+const FormButton = ({text}) => {
    return (  
-      <button className={props.nameOfClass} type='submit'>
-         {props.text}
-      </button>
+      <S.Button type='submit'>
+         {text}
+      </S.Button>
    );
 }
  

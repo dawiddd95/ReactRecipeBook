@@ -28,6 +28,25 @@
       padding: 10px 20px;
       color: #E74C3C;
       position: absolute;
+   }  
+
+   a {
+      margin-left: 20px;
+      padding: 8px 30px;
+      font-weight: 500;
+      font-size: 16px;
+      color: black;
+      font-family: 'Calibri';
+      background-color: white;
+      border: solid 2px #e74c3c;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+         transition: 0.3s;
+         background-color: #e74c3c;
+         color: white;
+      }   
    }
 }
 

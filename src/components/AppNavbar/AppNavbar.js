@@ -1,16 +1,16 @@
 import React from 'react';
 
-import './AppNavbar.scss';
+import * as S from './StyledAppNavbar';
 
 import NavbarLogo from '../NavbarLogo/NavbarLogo';
 import NavbarNavigation from '../NavbarNavigation/NavbarNavigation';
 
 const AppNavbar = () => {
    return (  
-      <div className='app__navbar'>
+      <S.Wrapper>
          <NavbarLogo />
          <NavbarNavigation />
-      </div>
+      </S.Wrapper>
    );
 }
  

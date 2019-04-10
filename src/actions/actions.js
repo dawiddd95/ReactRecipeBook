@@ -14,6 +14,13 @@ export const userRegisterAction = (data) => {
     }
 } 
 
+export const trendingRecipesAction = (recipe) => {
+    return {
+        type: actionType.TRENDING_RECIPES,
+        recipe
+    }
+}
+
 export const filterShowRecipes = (filter) => {
     return {
         type: actionType.FILTER_SHOW_RECIPES,
