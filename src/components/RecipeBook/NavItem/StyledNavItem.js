@@ -1,8 +1,6 @@
-a {
-   text-decoration: none;
-}
+import styled from 'styled-components';
 
-.navigation__item {
+export const Item = styled.div`
    height: 100%;
    padding: 0 20px;
    font-weight: 300;
@@ -13,9 +11,9 @@ a {
    flex-direction: column;
    justify-content: center;
    align-items: center;
+`
 
-   img {
-      width: 20px;
-      height: 20px;
-   }
-}
+export const Img = styled.img`
+   width: 20px;
+   height: 20px;
+`

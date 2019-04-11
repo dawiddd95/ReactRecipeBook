@@ -1,14 +1,14 @@
 import React from 'react'
 
-import PageNav from '../PageNav/PageNav';
-import ConnectedPageForm from '../../containers/ForgotPasswordPageForm/ForgotPasswordPageForm';
+import PageNav from '../../components/ForgotPasswordPage/PageNav/PageNav';
+import ForgotPasswordPageForm from '../../containers/ForgotPasswordPage/ForgotPasswordPageForm/ForgotPasswordPageForm';
 
 const ForgotPasswordPage = () => {
    return (  
-      <div className='forgotPassword__page'>
+      <>
          <PageNav />
-         <ConnectedPageForm />
-      </div>
+         <ForgotPasswordPageForm />
+      </>
    );
 }
  

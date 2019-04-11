@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 
-import './ForgotPasswordPageForm.scss';
+import * as S from './StyledForgotPasswordPageForm.js';
 
-import FormMessages from '../../components/FormMessages/FormMessages';
+import FormMessages from '../../../components/ForgotPasswordPage/FormMessages/FormMessages';
 
 class PageForm extends Component {
    state = {  
@@ -51,25 +51,25 @@ class PageForm extends Component {
       }
 
       return (  
-         <div className='page__formWrapper'>
-            <form onSubmit={this.handleFormSubmit} className='formWrapper__form'>
-               <p className='form__title'>Find Your Account</p>
+         <S.Wrapper>
+            <S.Form onSubmit={this.handleFormSubmit}>
+               <S.Paragraph>Find Your Account</S.Paragraph>
                Please enter your email to search for account
-               <input 
+               <S.Input
                   type="text" 
                   placeholder='Enter email here'
                   value={this.state.inputValue}
                   onChange={this.handleInputChange}   
                />
-               <button>Search</button>
+               <S.Button>Search</S.Button>
                <FormMessages 
                   inputValue={inputValue}
                   submit={submit}
                   err={err}
                   success={success}
                />
-            </form>
-         </div>
+            </S.Form>
+         </S.Wrapper>
       );
    }
 }

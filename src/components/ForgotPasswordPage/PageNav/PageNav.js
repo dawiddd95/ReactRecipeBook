@@ -1,16 +1,16 @@
-import React from 'react'
+import React from 'react';
 import {Link} from 'react-router-dom';
 
-import './PageNav.scss';
+import * as S from './StyledPageNav';
 
 const PageNav = () => {
    return (  
-      <nav className='page__navigation'>
+      <S.Wrapper>
          <Link to='/'>
-            <span> &larr; </span> 
+            <S.Span> &larr; </S.Span> 
             <p>Comeback To Homesite</p>
          </Link>
-      </nav>
+      </S.Wrapper>
    );
 }
  

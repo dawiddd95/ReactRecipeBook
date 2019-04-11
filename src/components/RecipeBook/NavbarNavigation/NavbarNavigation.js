@@ -1,18 +1,18 @@
 import React from 'react';
 
-import './NavbarNavigation.scss';
+import * as S from './StyledNavbarNavigation';
 
-import homeIcon from '../../images/home.png';
-import searchIcon from '../../images/search.png';
-import shoppingListIcon from '../../images/shoppingList.png';
-import mealPlanIcon from '../../images/mealPlan.png';
-import profileIcon from '../../images/profile.png';
+import homeIcon from '../../../images/home.png';
+import searchIcon from '../../../images/search.png';
+import shoppingListIcon from '../../../images/shoppingList.png';
+import mealPlanIcon from '../../../images/mealPlan.png';
+import profileIcon from '../../../images/profile.png';
 
 import NavItem from '../NavItem/NavItem';
 
 const NavbarNavigation = () => {
    return (  
-      <nav className='navbar__navigation'>
+      <S.Wrapper>
          <NavItem 
             text='Home'
             icon={homeIcon}
@@ -33,7 +33,7 @@ const NavbarNavigation = () => {
             text='Profile'
             icon={profileIcon}
          />
-      </nav>
+      </S.Wrapper>
    );
 }
  

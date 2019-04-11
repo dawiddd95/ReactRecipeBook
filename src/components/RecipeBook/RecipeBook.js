@@ -2,7 +2,7 @@ import React from 'react'
 
 import './RecipeBook.scss';
 
-import AppNavbar from '../AppNavbar/AppNavbar';
+import AppNavbar from './AppNavbar/AppNavbar';
 import RecipeBookRouters from '../../Routers/RecipeBookRouters';
 
 const RecipeBook = () => {
