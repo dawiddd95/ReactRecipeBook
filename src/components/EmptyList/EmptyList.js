@@ -1,18 +1,14 @@
 import React from 'react';
 
-import './EmptyList.scss';
+import * as S from './StyledEmptyList.js';
 
 const EmptyList = ({text}) => {
    return (  
-      <div className='empty__list'>
-         <div className="list__img"></div>
-         <div className='list__title'>
-            Nothing!!
-         </div>
-         <p className='list__subtitle'>
-            {text}
-         </p>
-      </div>
+      <S.Wrapper>
+         <S.Img></S.Img>
+         <S.Title>Nothing!!</S.Title>
+         <S.Subtitle>{text}</S.Subtitle>
+      </S.Wrapper>
    );
 }
  

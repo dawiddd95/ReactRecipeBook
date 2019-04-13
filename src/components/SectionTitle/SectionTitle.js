@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import './SectionTitle.scss';
+import * as S from './StyledSectionTitle.js';
 import {filterShowRecipes, searchRecipeAction} from '../../actions/actions';
 
 import FilterButton from '../FilterButton/FilterButton';
@@ -26,12 +26,10 @@ class SectionTitle extends Component {
    render() {
       if(this.props.haveSelect) {
          return (
-            <div className='section__title'>
-               <p>{this.props.title}</p>
-               <div className='type'>
-                  {this.renderType()}
-               </div>
-               <div className='filterButtons'>
+            <S.Wrapper>
+               <S.Paragraph>{this.props.title}</S.Paragraph>
+               <S.RenderType>{this.renderType()}</S.RenderType>
+               <S.FilterButtons>
                   FILTER BY: 
                   <FilterButton 
                      text='All'
@@ -43,14 +41,14 @@ class SectionTitle extends Component {
                      type='favorite'
                      handleChangeRecipesType={this.handleChangeRecipesType}
                   />
-               </div>
-            </div>
+               </S.FilterButtons>
+            </S.Wrapper>
          )
       } else {
          return (  
-            <div className='section__title'>
-               <p>{this.props.title}</p>
-            </div>
+            <S.Wrapper>
+               <S.Paragraph>{this.props.title}</S.Paragraph>
+            </S.Wrapper>
          );
       }
    }

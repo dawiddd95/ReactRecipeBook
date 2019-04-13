@@ -14,6 +14,7 @@ class Root extends Component {
          <Router>
             <Switch>
                <Route exact path='/' component={HomePage}/>
+               <Route exact path='/ReactRecipeBook/' component={HomePage} />
                <Route path='/forgotPassword' component={ForgotPasswordPage} />
                <PrivateRoute path="/app" component={RecipeBook} authed={this.props.isLoggedIn}/>
                <Route component={ErrorPage} />

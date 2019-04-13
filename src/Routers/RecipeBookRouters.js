@@ -2,13 +2,15 @@ import React from 'react'
 import {Switch, Route, Redirect} from 'react-router-dom';
 
 import RecipeBookHome from '../containers/RecipeBookHome/RecipeBookHome';
-import TrendingRecipeDetails from '../containers/TrendingRecipeDetails/TrendingRecipeDetails';
+import TrendingRecipeDetails from '../containers/RecipeBookHome/TrendingRecipeDetails/TrendingRecipeDetails';
 import RecipeBookRecipes from '../components/RecipeBookRecipes/RecipeBookRecipes';
-import CreateRecipe from '../components/CreateRecipe/CreateRecipe';
+import CreateRecipe from '../components/RecipeBookRecipes/CreateRecipe/CreateRecipe';
 import RecipeBookShoppingList from '../containers/RecipeBookShoppingList/RecipeBookShoppingList';
 import RecipeBookMealPlan from '../containers/RecipeBookMealPlan/RecipeBookMealPlan';
 import RecipeBookProfile from '../containers/RecipeBookProfile/RecipeBookProfile';
 import ErrorPage from '../components/ErrorPage/ErrorPage';
+
+   // logout button color: #904343
 
 const RecipeBookRouters = () => {
    return (  

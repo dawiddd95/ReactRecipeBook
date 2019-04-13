@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+
+import * as S from './StyledFilterButton';
 
 const FilterButton = ({text, type, handleChangeRecipesType}) => {
    return (  
-      <button onClick={() => handleChangeRecipesType(type)}>
+      <S.Button onClick={() => handleChangeRecipesType(type)}>
          {text}
-      </button>   
+      </S.Button>   
    );
 }
  

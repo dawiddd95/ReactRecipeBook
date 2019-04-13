@@ -1,16 +1,16 @@
 import React from 'react'
 
-import './RecipeBook.scss';
+import * as S from './StyledRecipeBook.js';
 
 import AppNavbar from './AppNavbar/AppNavbar';
 import RecipeBookRouters from '../../Routers/RecipeBookRouters';
 
 const RecipeBook = () => {
    return (  
-      <div className='app'>
+      <S.Wrapper>
          <AppNavbar />
          <RecipeBookRouters />
-      </div>
+      </S.Wrapper>
    );
 }
  

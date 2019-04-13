@@ -1,29 +1,23 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 
-import './RecipeBookHome.scss';
 import {trendingRecipesAction} from '../../actions/actions';
 
 import SectionTitle from '../../components/SectionTitle/SectionTitle';
-import TrendingRecipes from '../../components/TrendingRecipes/TrendingRecipes';
-import LoadingFetchData from '../../components/LoadingFetchData/LoadingFetchData';
+import TrendingRecipes from '../../components/RecipeBookHome/TrendingRecipes/TrendingRecipes';
+import LoadingFetchData from '../../components/RecipeBookHome/LoadingFetchData/LoadingFetchData';
 import EmptyList from '../../components/EmptyList/EmptyList';
 
-const keyAPI = '30ff560c1955a48278f1a074be37ccfa';
 //another keys if previous have limit
 //const keyAPI = 'a7b83ca1fbaa55083cad4707834d4785' 
 //const keyAPI = '361706a1a572c9554763dc4e7235b993';
 //const keyAPI = '1ef68b71c2c80cd188b64df3f012b08e'; 
+
+const keyAPI = '30ff560c1955a48278f1a074be37ccfa';
 const requestAPI = `https://cors-anywhere.herokuapp.com/https://www.food2fork.com/api/search?key=${keyAPI}&count=50`;
 
 
 class RecipeBookHome extends Component {
-   // 1. Tworzymy componentDidMount() , .then() i .catch() nie mogą mieć na końcu śrendika
-   // 2. Tworzymy stan recipes: []
-   // 3. w then po response.json() wpisujemy this.setState({})
-   // 4. Robimy .map() na zwroconym obiekcie
-   // 5. recipes musi byc w storze
-   // 6. Ze style w jsx piszemy w camelCase
    state = {
       recipes: [],
       isFetching: true,
@@ -33,14 +27,12 @@ class RecipeBookHome extends Component {
    componentDidMount() {
       fetch(requestAPI)
       .then(response => {
-         console.log(response)
          if(response.ok) {
             return response;
          } 
          throw Error("not connected with api");
       })
       .then(response => response.json())
-      // tutaj obsluga
       .then(data => {
          if(data.error === 'limit') {
             this.setState({
@@ -49,7 +41,7 @@ class RecipeBookHome extends Component {
             })
          } else if(data) {
             this.setState({
-               recipes: data.recipes, // Poniewaz idziemy w obiekt.poleRecipes inaczej wywali blad w .map()
+               recipes: data.recipes, 
                isFetching: false,
                isLoaded: true
             })
@@ -70,10 +62,9 @@ class RecipeBookHome extends Component {
                recipes={this.state.recipes}
             /> 
             {this.state.isFetching && <LoadingFetchData />}
-            {this.state.apiCallLimit && 
-               <div style={{'marginTop': '60px'}}>
-                  <EmptyList text='API calls reached the limit :('/>
-               </div>
+            {this.state.apiCallLimit && <div style={{'marginTop': '60px'}}>
+               <EmptyList text='API calls reached the limit :('/>
+            </div>
             }
          </>
       ); 
