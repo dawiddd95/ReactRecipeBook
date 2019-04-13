@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "d654ce194e0660d047d6913124f8d562",
-    "url": "/ReactRecipeBook/static/media/like.d654ce19.svg"
+    "revision": "b563ffb40e36ad457e1f9e6ef07c8d26",
+    "url": "/ReactRecipeBook/static/media/deleteRecipe.b563ffb4.svg"
   },
   {
-    "revision": "8816395363661e2bcba9",
-    "url": "/ReactRecipeBook/static/css/main.2b379e84.chunk.css"
+    "revision": "262709ed06139f604dd7",
+    "url": "/ReactRecipeBook/static/css/main.41e7990b.chunk.css"
   },
   {
     "revision": "7884afb693bc74ea12e4",
     "url": "/ReactRecipeBook/static/js/runtime~main.b22db41e.js"
   },
   {
-    "revision": "a846bc4d7ff73da810f3",
-    "url": "/ReactRecipeBook/static/js/2.652a5732.chunk.js"
+    "revision": "61709a2099494151cc62",
+    "url": "/ReactRecipeBook/static/js/2.77b2dee0.chunk.js"
   },
   {
     "revision": "a9217539a623c3f3607f5145239c38cd",
@@ -24,12 +24,16 @@ self.__precacheManifest = [
     "url": "/ReactRecipeBook/static/media/intro-img1.e67dc1fa.jpg"
   },
   {
-    "revision": "b563ffb40e36ad457e1f9e6ef07c8d26",
-    "url": "/ReactRecipeBook/static/media/deleteRecipe.b563ffb4.svg"
+    "revision": "94d34a65cd61e846d9d0e683d966f99a",
+    "url": "/ReactRecipeBook/static/media/empty.94d34a65.png"
   },
   {
-    "revision": "8816395363661e2bcba9",
-    "url": "/ReactRecipeBook/static/js/main.14645c18.chunk.js"
+    "revision": "262709ed06139f604dd7",
+    "url": "/ReactRecipeBook/static/js/main.bfcf304b.chunk.js"
+  },
+  {
+    "revision": "d654ce194e0660d047d6913124f8d562",
+    "url": "/ReactRecipeBook/static/media/like.d654ce19.svg"
   },
   {
     "revision": "9d53d97bb11e5a9b3b6014b0f1d6e46e",
@@ -48,15 +52,11 @@ self.__precacheManifest = [
     "url": "/ReactRecipeBook/static/media/addMethod.46af1e91.svg"
   },
   {
-    "revision": "94d34a65cd61e846d9d0e683d966f99a",
-    "url": "/ReactRecipeBook/static/media/empty.94d34a65.png"
-  },
-  {
     "revision": "9c27c92354f58e8f9f6069055996e224",
     "url": "/ReactRecipeBook/static/media/DTLNobelT.9c27c923.otf"
   },
   {
-    "revision": "3178cac1b684177dcbed3f03defc47ed",
+    "revision": "cef12a41afe3602139fa34071bc73cd4",
     "url": "/ReactRecipeBook/index.html"
   }
 ];
