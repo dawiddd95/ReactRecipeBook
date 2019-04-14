@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import * as S from './StyledFilterButton';
 
@@ -11,3 +12,9 @@ const FilterButton = ({text, type, handleChangeRecipesType}) => {
 }
  
 export default FilterButton;
+
+FilterButton.propTypes = {
+   text: PropTypes.string.isRequired,
+   type: PropTypes.string,
+   handleChangeRecipesType: PropTypes.func.isRequired
+}

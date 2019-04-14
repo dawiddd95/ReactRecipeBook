@@ -5,10 +5,10 @@ export const Wrapper = styled.div`
 
    display: flex;
    flex-direction: column;
+`
 
-   p {
-      color: #9b1818;
-      margin-top: 5px;
-      margin-bottom: 0;
-   }
+export const Paragraph = styled.p`
+   color: #9b1818;
+   margin-top: 5px;
+   margin-bottom: 0;
 `

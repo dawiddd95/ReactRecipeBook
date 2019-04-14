@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import * as S from './StyledDeleteModal.js';
 
@@ -27,3 +28,10 @@ const DeleteModal = ({recipeLp, recipeName, handleDeleteRecipeClick, handleHideM
 }
  
 export default DeleteModal;
+
+DeleteModal.propTypes = {
+   recipeLp: PropTypes.string.isRequired,
+   recipeName: PropTypes.string,
+   handleDeleteRecipeClick: PropTypes.func.isRequired,
+   handleHideModalDelete: PropTypes.func.isRequired
+}

@@ -118,7 +118,6 @@ class RegisterForm extends Component {
                </S.Button>
                <SubmitErrors 
                   errors={this.state.errors}
-                  registerUser={this.props.registerValues}
                />
                {registerSuccess && <p style={{'color': '#004c00'}}>Register Success! Now Log In ! :)</p>}
             </S.SubmitWrapper>

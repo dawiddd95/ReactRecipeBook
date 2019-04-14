@@ -1,5 +1,7 @@
 import React from 'react'
 import {Field} from 'redux-form'
+import PropTypes from 'prop-types'
+
 import * as S from './StyledLoginFormInput'
 
 const LoginFormInput = ({name, content, type}) => {
@@ -14,3 +16,9 @@ const LoginFormInput = ({name, content, type}) => {
 }
  
 export default LoginFormInput;
+
+LoginFormInput.propTypes = {
+   name: PropTypes.string.isRequired,
+   content: PropTypes.string.isRequired,
+   type: PropTypes.string.isRequired
+}

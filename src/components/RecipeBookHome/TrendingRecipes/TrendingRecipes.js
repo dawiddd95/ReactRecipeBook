@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import * as S from './StyledTrendingRecipes.js';
 
@@ -20,3 +21,7 @@ const TrendingRecipes = ({recipes}) => {
 }
  
 export default TrendingRecipes;
+
+TrendingRecipes.propTypes = {
+   recipes: PropTypes.array.isRequired
+}

@@ -1,5 +1,7 @@
-import React from 'react'
+import React from 'react';
 import {Field} from 'redux-form';
+import PropTypes from 'prop-types';
+
 import * as S from './StyledRegisterFormInput';
 
 const RegisterFormInput = ({name, error, errorBorder, type}) => {
@@ -19,3 +21,10 @@ const RegisterFormInput = ({name, error, errorBorder, type}) => {
 }
  
 export default RegisterFormInput;
+
+RegisterFormInput.propTypes = {
+   name: PropTypes.string.isRequired,
+   error: PropTypes.bool.isRequired,
+   errorBorder: PropTypes.object.isRequired,
+   type: PropTypes.string.isRequired,
+}

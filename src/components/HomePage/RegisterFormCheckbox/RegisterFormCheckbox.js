@@ -1,5 +1,6 @@
 import React from 'react';
 import {Field} from 'redux-form';
+import PropTypes from 'prop-types';
 
 import * as S from './StyledRegisterFormCheckbox';
 
@@ -19,3 +20,7 @@ const RegisterFormCheckbox = ({error}) => {
 }
  
 export default RegisterFormCheckbox;
+
+RegisterFormCheckbox.propTypes = {
+   error: PropTypes.bool
+}

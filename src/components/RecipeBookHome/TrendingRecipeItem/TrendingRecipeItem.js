@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import * as S from './StyledTrendingRecipeItem.js';
 
@@ -24,3 +25,9 @@ const TrendingRecipeItem = (props) => {
 }
  
 export default TrendingRecipeItem;
+
+TrendingRecipeItem.propTypes = {
+   title: PropTypes.string,
+   publisher: PropTypes.string,
+   recipe_id: PropTypes.string
+}

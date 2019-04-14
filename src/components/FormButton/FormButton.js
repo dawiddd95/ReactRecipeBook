@@ -1,5 +1,7 @@
-import React from 'react'
-import * as S from './StyledFormButton'
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import * as S from './StyledFormButton';
 
 const FormButton = ({text}) => {
    return (  
@@ -7,6 +9,10 @@ const FormButton = ({text}) => {
          {text}
       </S.Button>
    );
+}
+
+FormButton.propTypes = {
+   text: PropTypes.string.isRequired
 }
  
 export default FormButton;

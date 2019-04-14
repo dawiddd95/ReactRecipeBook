@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import * as S from './StyledNavItem.js';
 
@@ -15,3 +16,8 @@ const NavItem = ({text, icon}) => {
 }
  
 export default NavItem;
+
+NavItem.propTypes = {
+   text: PropTypes.string.isRequired,
+   icon: PropTypes.string.isRequired
+}

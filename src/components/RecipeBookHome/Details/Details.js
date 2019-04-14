@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import * as S from './StyledDetails.js';
 
@@ -40,3 +41,7 @@ const Details = ({recipe}) => {
 }
  
 export default Details;
+
+Details.propTypes = {
+   recipe: PropTypes.object.isRequired
+}

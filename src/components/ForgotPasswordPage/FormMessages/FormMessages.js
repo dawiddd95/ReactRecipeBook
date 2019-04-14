@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import * as S from './StyledFormMessages';
 
@@ -17,3 +18,10 @@ const FormMessages = ({inputValue, submit, err, success}) => {
 }
  
 export default FormMessages;
+
+FormMessages.propTypes = {
+   inputValue: PropTypes.string,
+   submit: PropTypes.bool.isRequired ,
+   err: PropTypes.bool.isRequired,
+   success: PropTypes.bool.isRequired
+}

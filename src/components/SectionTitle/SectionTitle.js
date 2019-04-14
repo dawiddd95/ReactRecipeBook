@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 import * as S from './StyledSectionTitle.js';
 import {filterShowRecipes, searchRecipeAction} from '../../actions/actions';
@@ -70,3 +71,8 @@ const mapDispatchToProps = dispatch => {
 SectionTitle = connect(mapStateToProps, mapDispatchToProps)(SectionTitle);
  
 export default SectionTitle;
+
+SectionTitle.propTypes = {
+   haveSelect: PropTypes.bool,
+   title: PropTypes.string.isRequired
+}
