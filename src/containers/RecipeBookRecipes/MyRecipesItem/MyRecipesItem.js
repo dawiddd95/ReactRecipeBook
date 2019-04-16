@@ -40,7 +40,7 @@ class MyRecipesItem extends Component {
                />
             </S.StarRating>
             <S.Footer> 
-               <Link style={{'textDecoration': 'none'}} to='ssss'>
+               <Link style={{'textDecoration': 'none'}} to={`/app/recipes/recipe=${this.props.lp}`}>
                   VIEW RECIPE
                </Link>
                {this.props.addFavoriteMessage ? <S.Paragraph footer>Favorite recipe</S.Paragraph> : undefined}

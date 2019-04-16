@@ -6,7 +6,7 @@ import * as S from './StyledPageNav';
 const PageNav = () => {
    return (  
       <S.Wrapper>
-         <Link to='/'>
+         <Link style={{'textDecoration': 'none'}} to='/'>
             <S.Span> &larr; </S.Span> 
             <p>Comeback To Homesite</p>
          </Link>

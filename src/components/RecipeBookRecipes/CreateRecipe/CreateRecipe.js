@@ -7,8 +7,8 @@ const CreateRecipe = () => {
    return (  
       <>
          <SectionTitle 
-               title='CREATE RECIPE'
-               haveSelect={false}
+            title='CREATE RECIPE'
+            haveSelect={false}
          />
          <CreateRecipeForm />
       </>

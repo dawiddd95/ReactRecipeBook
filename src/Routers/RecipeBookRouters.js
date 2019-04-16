@@ -5,6 +5,7 @@ import RecipeBookHome from '../containers/RecipeBookHome/RecipeBookHome';
 import TrendingRecipeDetails from '../containers/RecipeBookHome/TrendingRecipeDetails/TrendingRecipeDetails';
 import RecipeBookRecipes from '../components/RecipeBookRecipes/RecipeBookRecipes';
 import CreateRecipe from '../components/RecipeBookRecipes/CreateRecipe/CreateRecipe';
+import RecipePreview from '../containers/RecipeBookRecipes/RecipePreview/RecipePreview';
 import RecipeBookShoppingList from '../containers/RecipeBookShoppingList/RecipeBookShoppingList';
 import RecipeBookMealPlan from '../containers/RecipeBookMealPlan/RecipeBookMealPlan';
 import RecipeBookProfile from '../containers/RecipeBookProfile/RecipeBookProfile';
@@ -18,7 +19,8 @@ const RecipeBookRouters = () => {
          <Route path='/app' exact render={() => <Redirect to='/app/home' />} /> 
          <Route path='/app/home' exact component={RecipeBookHome}/>
          <Route path='/app/home/trending recipe=:id' component={TrendingRecipeDetails} />
-         <Route path='/app/recipes' component={RecipeBookRecipes} />
+         <Route path='/app/recipes' exact component={RecipeBookRecipes} />
+         <Route path='/app/recipes/recipe=:id' component={RecipePreview} />
          <Route path='/app/createRecipe' component={CreateRecipe} />
          <Route path='/app/shopping list' component={RecipeBookShoppingList} />
          <Route path='/app/meal plan' component={RecipeBookMealPlan} />
