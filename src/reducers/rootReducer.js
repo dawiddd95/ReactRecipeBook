@@ -7,6 +7,7 @@ import trendingRecipesReducer from './trendingRecipesReducer';
 import recipeReducer from './recipeReducer';
 import filterRecipesReducer from './filterRecipesReducer';
 import searchRecipeReducer from './searchRecipeReducer';
+import recipeToEditReducer from './recipeToEditReducer';
 
 const rootReducer = combineReducers({
    form: formReducer,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
    trendingRecipesReducer,
    recipeReducer,
    filterRecipesReducer,
-   searchRecipeReducer
+   searchRecipeReducer,
+   recipeToEditReducer
 })
 
 export default rootReducer;

@@ -7,3 +7,5 @@ export const DELETE_RECIPE = 'DELETE_RECIPE';
 export const FAVORITE_RECIPE = 'FAVORITE_RECIPE';
 export const RECIPES_TYPE = 'RECIPES_TYPE';
 export const SEARCH_RECIPE = 'SEARCH_RECIPE';
+export const RECIPE_TO_EDIT = 'RECIPE_TO_EDIT';
+export const EDIT_RECIPE = 'EDIT_RECIPE';

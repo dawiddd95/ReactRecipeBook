@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import * as S from './StyledPreviewDetails';
+
+import {recipeToEditAction} from '../../../../actions/actions';
 
 import RecipeHeader from '../RecipeHeader/RecipeHeader';
 import RecipeProperties from '../RecipeProperties/RecipeProperties';
@@ -11,9 +14,16 @@ import RecipeNutrition from '../RecipeNutrition/RecipeNutrition';
 import RecipeLink from '../RecipeLink/RecipeLink';
 import RecipeComment from '../RecipeComment/RecipeComment';
 
-const PreviewDetails = ({recipe}) => {
-   return (  
-      <S.Wrapper>
+class PreviewDetails extends Component {
+   componentDidMount() {
+      this.props.recipeToEdit(this.props.recipe)
+   }
+
+   render() {
+      const {recipe} = this.props;
+      
+      return (  
+         <S.Wrapper>
          <RecipeHeader
             img={recipe.recipeImage}
             title={recipe.recipeTitle}
@@ -57,8 +67,17 @@ const PreviewDetails = ({recipe}) => {
             comment={recipe.recipeComment}
          />      
       </S.Wrapper>
-   );
+      );
+   }
 }
+
+const mapDispatchToProps = dispatch => {
+   return {
+      recipeToEdit: (recipe) => dispatch(recipeToEditAction(recipe))
+   }
+}
+ 
+PreviewDetails = connect(undefined, mapDispatchToProps)(PreviewDetails)
 
 PreviewDetails.propTypes = {
    recipe: PropTypes.object.isRequired

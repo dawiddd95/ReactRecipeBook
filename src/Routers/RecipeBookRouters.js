@@ -4,8 +4,9 @@ import {Switch, Route, Redirect} from 'react-router-dom';
 import RecipeBookHome from '../containers/RecipeBookHome/RecipeBookHome';
 import TrendingRecipeDetails from '../containers/RecipeBookHome/TrendingRecipeDetails/TrendingRecipeDetails';
 import RecipeBookRecipes from '../components/RecipeBookRecipes/RecipeBookRecipes';
-import CreateRecipe from '../components/RecipeBookRecipes/CreateRecipe/CreateRecipe';
+import CreateRecipe from '../containers/RecipeBookRecipes/CreateRecipe/CreateRecipe';
 import RecipePreview from '../containers/RecipeBookRecipes/RecipePreview/RecipePreview';
+//import EditRecipeForm from '../containers/RecipeBookRecipes/EditRecipeForm/EditRecipeForm';
 import RecipeBookShoppingList from '../containers/RecipeBookShoppingList/RecipeBookShoppingList';
 import RecipeBookMealPlan from '../containers/RecipeBookMealPlan/RecipeBookMealPlan';
 import RecipeBookProfile from '../containers/RecipeBookProfile/RecipeBookProfile';
@@ -20,8 +21,9 @@ const RecipeBookRouters = () => {
          <Route path='/app/home' exact component={RecipeBookHome}/>
          <Route path='/app/home/trending recipe=:id' component={TrendingRecipeDetails} />
          <Route path='/app/recipes' exact component={RecipeBookRecipes} />
-         <Route path='/app/recipes/recipe=:id' component={RecipePreview} />
-         <Route path='/app/createRecipe' component={CreateRecipe} />
+         <Route path='/app/recipes/recipe=:id' exact component={RecipePreview} />
+         <Route path='/app/recipes/recipe=:id/edit' exact render={(props) => <CreateRecipe {...props} edit={true}/>} />
+         <Route path='/app/createRecipe' render={(props) => <CreateRecipe {...props} edit={false}/>} />
          <Route path='/app/shopping list' component={RecipeBookShoppingList} />
          <Route path='/app/meal plan' component={RecipeBookMealPlan} />
          <Route path='/app/profile' component={RecipeBookProfile} />

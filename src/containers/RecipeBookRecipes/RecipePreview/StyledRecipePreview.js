@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
    height: 100%;
 `
 
-export const ButtonsWrapper = styled.div`
+export const LinksWrapper = styled.div`
    width: 100%;
    height: 100%;
    margin: 40px 0;
@@ -15,13 +15,15 @@ export const ButtonsWrapper = styled.div`
 
    a {
       width: 160px;
-      height: 43px;
+      height: 45px;
+      margin: 0 10px;
       font-size: 16px;
       font-family: 'Arial';
       text-decoration: none;
       border: 1.5px solid black;
-      background-color: black;
-      color: white;
+      border-radius: 5px;
+      background-color: white;
+      color: black;
       transition: .3s;
 
       display: flex;
@@ -30,27 +32,8 @@ export const ButtonsWrapper = styled.div`
 
       &:hover {
          transition: .3s;
-         background-color: white;
-         color: black;
+         background-color: #222;
+         color: white;
       }
-   }
-`
-
-export const Button = styled.button`
-   width: 140px;
-   height: 45px;
-   margin-right: 20px;
-   font-size: 16px;
-   font-family: 'Arial';
-   background-color: black;
-   border: 1.5px solid black;
-   color: white;
-   transition: .3s;
-   cursor: pointer;
-
-   &:hover {
-      transition: .3s;
-      background-color: white;
-      color: black;
    }
 `

@@ -8,9 +8,6 @@ import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import PreviewDetails from '../../../components/RecipeBookRecipes/RecipePreview/PreviewDetails/PreviewDetails'; 
 
 class RecipePreview extends Component {
-   
-   // Tutaj funkcje
-
    render() {
       const filterRenderRecipe = this.props.recipe.filter(currentElement => { 
          if(currentElement.lp === this.props.match.params.id) {
@@ -31,14 +28,14 @@ class RecipePreview extends Component {
             <PreviewDetails 
                recipe={filterRenderRecipe[0]}
             />
-            <S.ButtonsWrapper>
-               <S.Button>
+            <S.LinksWrapper>
+               <Link to={`/app/recipes/recipe=${filterRenderRecipe[0].lp}/edit`} >
                   Edit Recipe   
-               </S.Button> 
+               </Link> 
                <Link to='/app/recipes'>
                   Back To Recipes
                </Link>
-            </S.ButtonsWrapper> 
+            </S.LinksWrapper> 
          </S.Wrapper>
       );
    }

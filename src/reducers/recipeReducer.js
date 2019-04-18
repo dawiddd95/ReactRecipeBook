@@ -1,6 +1,10 @@
-import {ADD_RECIPE} from '../actions/actionTypes';
-import {DELETE_RECIPE} from '../actions/actionTypes';
-import {FAVORITE_RECIPE} from '../actions/actionTypes';
+import {
+   ADD_RECIPE, 
+   DELETE_RECIPE, 
+   FAVORITE_RECIPE,
+   EDIT_RECIPE
+} from '../actions/actionTypes';
+
 
 const recipeReducer = (state = [], action) => {
   switch(action.type) {
@@ -10,7 +14,7 @@ const recipeReducer = (state = [], action) => {
          return state.filter(currentElement => currentElement.lp !== action.recipe)
       case FAVORITE_RECIPE:
          return state.map(currentElement => {
-            if (currentElement.lp === action.recipe) {
+            if(currentElement.lp === action.recipe) {
                return {
                   ...currentElement,
                   favorite: !currentElement.favorite
@@ -18,6 +22,16 @@ const recipeReducer = (state = [], action) => {
             }
             return currentElement;
          });
+      case EDIT_RECIPE:
+         return state.map(currentElement => {
+            if(currentElement.lp === action.recipe.lp) {
+               return {
+                  ...currentElement,
+                  ...action.recipe
+               }
+            }
+            return currentElement;
+         })
       default:
          return state
   }

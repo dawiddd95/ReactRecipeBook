@@ -56,9 +56,19 @@ export const searchRecipeAction = (searchingRecipe) => {
     }
 }
 
+export const recipeToEditAction = (recipe) => {
+    return {
+        type: actionType.RECIPE_TO_EDIT,
+        recipe
+    }
+}
 
-
-
+export const editRecipeAction = (recipe) => {
+    return {
+        type: actionType.EDIT_RECIPE,
+        recipe
+    }
+}
 
 
 

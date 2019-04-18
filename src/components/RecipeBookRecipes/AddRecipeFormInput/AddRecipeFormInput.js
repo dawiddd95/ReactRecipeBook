@@ -17,8 +17,6 @@ const AddRecipeFormInput = ({properties, title, name, type, placeholder}) => {
       </S.Label>
    );
 }
- 
-export default AddRecipeFormInput;
 
 AddRecipeFormInput.propTypes = {
    properties: PropTypes.bool,
@@ -27,3 +25,6 @@ AddRecipeFormInput.propTypes = {
    type: PropTypes.string.isRequired,
    placeholder: PropTypes.string
 }
+ 
+export default AddRecipeFormInput;
+
