@@ -5,8 +5,6 @@ import {connect} from 'react-redux';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import CreateRecipeForm from '../CreateRecipeForm/CreateRecipeForm';
 
-//to sie wlacza i przy tworzeniu przepisu i przy kliknieciu edit
-
 const CreateRecipe = (props) => {
    return (  
       <>
@@ -26,7 +24,7 @@ const CreateRecipe = (props) => {
 const mapStateToProps = state => {
    return {
       recipe: state.recipeReducer,
-      recipeToEdit: state.recipeToEditReducer // Teraz to jest tylko jedna pozycja
+      recipeToEdit: state.recipeToEditReducer
    }
 }
 

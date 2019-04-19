@@ -6,7 +6,6 @@ import TrendingRecipeDetails from '../containers/RecipeBookHome/TrendingRecipeDe
 import RecipeBookRecipes from '../components/RecipeBookRecipes/RecipeBookRecipes';
 import CreateRecipe from '../containers/RecipeBookRecipes/CreateRecipe/CreateRecipe';
 import RecipePreview from '../containers/RecipeBookRecipes/RecipePreview/RecipePreview';
-//import EditRecipeForm from '../containers/RecipeBookRecipes/EditRecipeForm/EditRecipeForm';
 import RecipeBookShoppingList from '../containers/RecipeBookShoppingList/RecipeBookShoppingList';
 import RecipeBookMealPlan from '../containers/RecipeBookMealPlan/RecipeBookMealPlan';
 import RecipeBookProfile from '../containers/RecipeBookProfile/RecipeBookProfile';

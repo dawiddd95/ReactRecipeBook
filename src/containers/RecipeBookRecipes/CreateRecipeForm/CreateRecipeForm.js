@@ -18,14 +18,14 @@ import FormRecipeProperties from '../../../components/RecipeBookRecipes/FormReci
 class CreateRecipeForm extends Component {
    state = {  
       starRating: !this.props.edit ? 0 : this.props.recipeToEdit.starRating,
-      ingredientInputs: [{
+      ingredientInputs: !this.props.edit ? [{
          ingredientLp: 0, 
-         ingredientValue: "",
-      }],
-      methodInputs: [{
-         methodLp: 0,
-         methodValue: "",
-      }],    
+         ingredientValue: ""
+      }] : this.props.recipeToEdit.ingredients,
+      methodInputs: !this.props.edit ? [{
+         methodLp: 0, 
+         methodValue: ""
+      }] : this.props.recipeToEdit.method,
       ingredient: {
          ingredientLp: 1,
          ingredientValue: "",
@@ -56,7 +56,7 @@ class CreateRecipeForm extends Component {
             ingredientLp: prevState.ingredient.ingredientLp+1
          }, 
          ingredientInputs: this.state.ingredientInputs.concat([{
-            ingredientLp: this.state.ingredient.ingredientLp, 
+            ingredientLp: !this.props.edit ? this.state.ingredient.ingredientLp : this.state.ingredientInputs.length, 
             ingredientValue: ""
          }]) 
       }))
@@ -67,9 +67,9 @@ class CreateRecipeForm extends Component {
             methodLp: prevState.method.methodLp+1
          }, 
          methodInputs: this.state.methodInputs.concat([{
-            methodLp: this.state.method.methodLp, 
+            methodLp: !this.props.edit ? this.state.method.methodLp : this.state.methodInputs.length, 
             methodValue: ""
-         }]) 
+         }])
       }))
    };
    changeIngredientInputValue = lp => event => {
@@ -129,10 +129,6 @@ class CreateRecipeForm extends Component {
          },
       })
    };
-   editRecipe = values => {
-      values.lp = this.props.id;
-      this.props.editingRecipe(values);
-   };
    validateRecipeExists = (validateRecipeTitle) => {
       if(validateRecipeTitle === -1) {
          return false;
@@ -147,6 +143,18 @@ class CreateRecipeForm extends Component {
          return true;
       }
    };
+   editRecipe = values => {
+      values.lp = this.props.id;
+      values.ingredients = this.state.ingredientInputs;
+      values.method = this.state.methodInputs;
+      values.starRating = this.state.starRating;
+      
+      this.props.editingRecipe(values);
+
+      this.setState({
+         redirectToNewPage: true
+      })
+   };
 
 
    render() { 
@@ -160,8 +168,10 @@ class CreateRecipeForm extends Component {
          'fontSize': '30px',
       };
       
-      if(redirectToNewPage) {
+      if(redirectToNewPage && !edit) {
          return <Redirect to='/app/recipes' />
+      } else if(redirectToNewPage && edit) {
+         return <Redirect to={`/app/recipes/recipe=${id}`} />
       }
 
       return (   
@@ -290,9 +300,6 @@ class CreateRecipeForm extends Component {
       );
    }
 }
-
-// 1. Do wartosci domyslnych potrzebujemy je wpisac w mapStateToProps i specjalny zapis connect z redux form
-// 2. zmienne mozemy przypisywac do initialValues tylko z reducerow
 
 const mapStateToProps = (state, ownProps) => {
    return {
