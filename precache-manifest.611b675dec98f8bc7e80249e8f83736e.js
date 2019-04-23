@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/ReactRecipeBook/static/media/empty.94d34a65.png"
   },
   {
-    "revision": "debe9a422725ffff4d5e",
+    "revision": "c4a2625125f2f2c52760",
     "url": "/ReactRecipeBook/static/css/main.ad6ae425.chunk.css"
   },
   {
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/ReactRecipeBook/static/media/intro-img1.e67dc1fa.jpg"
   },
   {
-    "revision": "debe9a422725ffff4d5e",
-    "url": "/ReactRecipeBook/static/js/main.05655367.chunk.js"
+    "revision": "c4a2625125f2f2c52760",
+    "url": "/ReactRecipeBook/static/js/main.387e0c7b.chunk.js"
   },
   {
     "revision": "b563ffb40e36ad457e1f9e6ef07c8d26",
@@ -64,7 +64,7 @@ self.__precacheManifest = [
     "url": "/ReactRecipeBook/static/media/DTLNobelT.9c27c923.otf"
   },
   {
-    "revision": "376c3016415dc726878502f55a84ee65",
+    "revision": "fa8e702e1445c1495e58ee32c1a1f7c8",
     "url": "/ReactRecipeBook/index.html"
   }
 ];
