@@ -7,8 +7,8 @@ import Main from './Main/Main';
 
 const HomePage = () => (
    <S.Wrapper>
-      {/* <Navbar />
-      <Main /> */}
+      <Navbar />
+      <Main />
    </S.Wrapper>
 );
 
