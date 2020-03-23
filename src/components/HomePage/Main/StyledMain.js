@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
    background-image: url(${backgroundImg});
    background-position: center;
    background-size: cover;
+   background-repeat: no-repeat;
 
    display: flex;
    justify-content: space-between;
