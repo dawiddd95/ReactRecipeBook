@@ -3,9 +3,10 @@ import backgroundImg from '../../../images/intro-img1.jpg';
 
 export const Wrapper = styled.div`
    width: 100%;
-   height: 680px;
+   height: 100vh;
    background-image: url(${backgroundImg});
    background-position: center;
+   background-size: cover;
 
    display: flex;
    justify-content: space-between;
