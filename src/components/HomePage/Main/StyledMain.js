@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import backgroundImg from '../../../images/intro-img1.jpg';
+import backgroundImg from '../../../images/intro-img.jpg';
 
 export const Wrapper = styled.div`
    width: 100%;
